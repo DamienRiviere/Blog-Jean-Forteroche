@@ -1,0 +1,67 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Consolas','Open Sans', Verdana, sans-serif; /* Définition de la police */
+}
+
+/* DEBUT HEADER */ 
+
+#background-navbar {
+    background-color : #ffff;
+}
+
+#navbar-title {
+    color: #3399ff;
+}
+
+.fa-home {
+    color : #3399ff;
+    font-size: 1.2em;
+}
+
+.fa-book {
+    color : #3399ff;
+    font-size: 1.2em;
+}
+
+.fa-envelope {
+    color : #3399ff;
+    font-size: 1.2em;
+}
+
+.fa-sign-in-alt {
+    color : #3399ff;
+    font-size: 1.2em;
+}
+
+.fa-file-signature {
+    color : #3399ff;
+    font-size: 1.2em;
+}
+
+/* FIN HEADER */
+
+/* DEBUT CAROUSEL */
+
+#slider_1 {
+    height: 500px;
+}
+
+#slider_2 {
+    height: 500px;
+}
+
+#slider_3 {
+    height: 500px;
+}
+
+.fa-angle-right {
+    font-size: 3em;
+    color: rgb(50, 50, 50);
+}
+
+.fa-angle-left {
+    font-size: 3em;
+    color: rgb(50, 50, 50);
+}
+
