@@ -6,34 +6,42 @@ body {
 
 /* DEBUT HEADER */ 
 
+/* Couleur de fond de la barre de navigation */
 #background-navbar {
-    background-color : #ffff;
+    background-color: #ffffff;
+    border-bottom: 1px solid #3399ff;
 }
 
+/* Titre "Jean Forteroche */
 #navbar-title {
     color: #3399ff;
 }
 
+/* Icône "Accueil" */
 .fa-home {
     color : #3399ff;
     font-size: 1.2em;
 }
 
+/* Icône "Livres" */
 .fa-book {
     color : #3399ff;
     font-size: 1.2em;
 }
 
+/* Icône "Contact" */
 .fa-envelope {
     color : #3399ff;
     font-size: 1.2em;
 }
 
+/* Icône "Connexion" */
 .fa-sign-in-alt {
     color : #3399ff;
     font-size: 1.2em;
 }
 
+/* Icône "Signature" */
 .fa-file-signature {
     color : #3399ff;
     font-size: 1.2em;
@@ -43,25 +51,130 @@ body {
 
 /* DEBUT CAROUSEL */
 
+.carousel-inner {
+    margin-top: 57px;
+}
+
+/* Image 1 */
 #slider_1 {
-    height: 500px;
+    max-height: 610px;
 }
 
+/* Image 2 */
 #slider_2 {
-    height: 500px;
+    max-height: 610px;
 }
 
+/* Image 2 */
 #slider_3 {
-    height: 500px;
+    max-height: 610px;
 }
 
+/* Chevron droit */
 .fa-angle-right {
     font-size: 3em;
     color: rgb(50, 50, 50);
 }
 
+/* Chevron gauche */
 .fa-angle-left {
     font-size: 3em;
     color: rgb(50, 50, 50);
 }
 
+/* Emplacement description carousel */
+.carousel-caption {
+    bottom: 175px;
+}
+
+/* Style du titre d'une slide */
+.style_title {
+    font-size: 2.5em;
+    text-shadow: 1px 1px 1px #000000; 
+}
+
+/* Style du texte d'une slide */
+.style_texte {
+    font-size: 1.2em;
+    text-shadow: 0.5px 0.5px 0.5px #000000;
+}
+
+/* Bannière responsive */
+.banner-responsive {
+    display: none;
+}
+
+/* FIN CAROUSEL */
+
+/* DEBUT JUMBOTRON */
+
+.jumbotron {
+    margin-bottom: 0px;
+}
+
+.title-jumbotron {
+    text-align: center;
+}
+
+.text-jumbotron {
+    font-size: 1.2em;
+}
+
+/* FIN JUMBOTRON */
+
+/* DEBUT FOOTER */
+
+footer {
+    height: 50px;
+    border-top: 1px solid #3399ff; 
+}
+
+.text-footer {
+    margin: 0px;
+}
+
+#social-media
+{
+    height: 50px;
+	display: flex;
+	justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.style-logo
+{
+	padding: 0 10px 0 10px;
+	font-size: 1.5em;
+	color: #3399ff;
+	cursor:pointer;
+}
+
+/* FIN FOOTER */
+
+@media screen and (max-width: 1082px) {
+
+    #carouselIndicators {
+        display: none;
+    }
+
+    .banner-responsive {
+        display: block;
+        margin-top: 57px;
+    }
+
+    .title-banner {
+        position: absolute;
+        margin-top: -45px;
+        margin-left: 15px;
+        color: #ffffff;
+        font-size: 2em;
+        text-shadow: 1px 1px 1px #000000; 
+    }
+}
+
+@media screen and (max-width: 510px) {
+    .text-footer {
+        display: none;
+    }
+}
