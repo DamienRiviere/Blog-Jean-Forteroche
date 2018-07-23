@@ -158,7 +158,7 @@
                 <div class="container">
                     <h1 class="title-jumbotron">Dernières publications :</h1>
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-lg-4 col-md-6">
                             <div class="card mb-4 box-shadow">
                                 <img class="card-img-top" src="public/img/thumbnail1.jpg" alt="Card image cap">
                                 <div class="card-body">
@@ -171,7 +171,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-lg-4 col-md-6">
                             <div class="card mb-4 box-shadow">
                                 <img class="card-img-top" src="public/img/thumbnail2.jpg" alt="Card image cap">
                                 <div class="card-body">
@@ -184,7 +184,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-lg-4 col-md-6">
                             <div class="card mb-4 box-shadow">
                                 <img class="card-img-top" src="public/img/thumbnail3.jpg" alt="Card image cap">
                                 <div class="card-body">
@@ -198,7 +198,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-lg-4 col-md-6">
                             <div class="card mb-4 box-shadow">
                                 <img class="card-img-top" src="public/img/thumbnail4.jpg" alt="Card image cap">
                                 <div class="card-body">
@@ -211,7 +211,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-lg-4 col-md-6">
                             <div class="card mb-4 box-shadow">
                                 <img class="card-img-top" src="public/img/thumbnail5.jpg" alt="Card image cap">
                                 <div class="card-body">
@@ -224,7 +224,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-lg-4 col-md-6">
                             <div class="card mb-4 box-shadow">
                                 <img class="card-img-top" src="public/img/thumbnail6.jpg" alt="Card image cap">
                                 <div class="card-body">

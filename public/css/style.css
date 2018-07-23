@@ -112,10 +112,12 @@ body {
     margin-bottom: 0px;
 }
 
+/* Titre "Qui suis-je ?" */
 .title-jumbotron {
     text-align: center;
 }
 
+/* Texte du "Qui suis-je ?" */
 .text-jumbotron {
     font-size: 1.2em;
 }
@@ -129,10 +131,12 @@ footer {
     border-top: 1px solid #3399ff; 
 }
 
+/* Texte "Suivez moi sur mes réseaux sociaux :" */
 .text-footer {
     margin: 0px;
 }
 
+/* Réseaux sociaux */
 #social-media
 {
     height: 50px;
@@ -142,6 +146,7 @@ footer {
     align-content: center;
 }
 
+/* Style des logos des réseaux sociaux */
 .style-logo
 {
 	padding: 0 10px 0 10px;
@@ -165,16 +170,63 @@ footer {
 
     .title-banner {
         position: absolute;
-        margin-top: -45px;
-        margin-left: 15px;
+        margin-top: -58px;
+        padding: 10px;
         color: #ffffff;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.5);
         font-size: 2em;
         text-shadow: 1px 1px 1px #000000; 
     }
 }
 
+@media screen and (max-width: 759px) {
+
+    .title-banner {
+        font-size: 1.8em;
+        margin-top: -54px;
+    }
+
+}
+
+@media screen and (max-width: 686px) {
+
+    .title-banner {
+        font-size: 1.5em;
+        margin-top: -48px;
+    }
+
+}
+
+@media screen and (max-width: 574px) {
+
+    .title-banner {
+        font-size: 1.2em;
+        margin-top: -43px;
+    }
+
+}
+
 @media screen and (max-width: 510px) {
+
     .text-footer {
         display: none;
     }
+
+}
+
+@media screen and (max-width: 510px) {
+
+    .title-banner {
+        margin-top: -43px;
+    }
+
+}
+
+@media screen and (max-width: 463px) {
+
+    .title-banner {
+        margin-top: -66px;
+    }
+
 }
