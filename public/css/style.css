@@ -12,9 +12,15 @@ body {
     border-bottom: 1px solid #3399ff;
 }
 
+#navbarCollapse {
+    margin-left: 20px;
+}
+
 /* Titre "Jean Forteroche */
 #navbar-title {
     color: #3399ff;
+    line-height: 20px;
+    text-decoration: none;
 }
 
 /* Icône "Accueil" */
@@ -112,17 +118,24 @@ body {
     margin-bottom: 0px;
 }
 
-/* Titre "Qui suis-je ?" */
-.title-jumbotron {
-    text-align: center;
-}
-
 /* Texte du "Qui suis-je ?" */
 .text-jumbotron {
     font-size: 1.2em;
 }
 
 /* FIN JUMBOTRON */
+
+/* DEBUT DERNIERES PUBLICATIONS */
+
+/* Titre "Dernières publications :" */
+.title-publication {
+    text-align: center;
+}
+
+/* Date de publication */
+small {
+    margin-left: 20px;
+}
 
 /* DEBUT FOOTER */
 
@@ -178,6 +191,14 @@ footer {
         font-size: 2em;
         text-shadow: 1px 1px 1px #000000; 
     }
+}
+
+@media screen and (max-width: 768px) {
+
+    #navbarCollapse {
+        margin-left: 0px;
+    }
+
 }
 
 @media screen and (max-width: 759px) {
