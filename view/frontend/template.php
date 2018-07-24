@@ -1,3 +1,4 @@
+<!-- Template de base du site -->
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -32,13 +33,14 @@
                     <ul class="navbar-nav mr-auto">
 
                         <li class="nav-item active">                         
-                            <a class="nav-link text-dark" href="#"><i class="fas fa-home"></i> ACCUEIL<span class="sr-only">(current)</span></a>
+                            <a class="nav-link text-dark" href="index.php"><i class="fas fa-home"></i> ACCUEIL<span class="sr-only">(current)</span></a>
                         </li>
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-book"></i> LIVRES</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Billet simple pour l'Alaska</a>
+                                <!-- Lien pour afficher la liste des chapitres d'un "Billet simple pour l'Alaska" -->
+                                <a class="dropdown-item" href="index.php?action=listPosts">Billet simple pour l'Alaska</a>
                                 <a class="dropdown-item" href="#">Prochain livre</a>
                             </div>
                         </li>
