@@ -41,12 +41,11 @@
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <!-- Lien pour afficher la liste des chapitres d'un "Billet simple pour l'Alaska" -->
                                 <a class="dropdown-item" href="index.php?action=listPosts">Billet simple pour l'Alaska</a>
-                                <a class="dropdown-item" href="#">Prochain livre</a>
                             </div>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="#"><i class="fas fa-envelope"></i> CONTACT</a>
+                            <a class="nav-link text-dark" href="index.php?action=contact"><i class="fas fa-envelope"></i> CONTACT</a>
                         </li>
                         
                     </ul>
