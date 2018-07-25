@@ -1,6 +1,10 @@
 <?php
 
 require_once('model/PostManager.php');
+require_once('model/PostContact.php');
+
+use \Openclassrooms\Projet_4\Model\PostManager;
+use \Openclassrooms\Projet_4\Model\PostContact;
 
 /**
  * Fonction pour afficher les derniers posts sur la page d'accueil
@@ -33,4 +37,21 @@ function post() {
     $post = $postManager->getPost($_GET['id']);
 
     require('view/frontend/chapterView.php');
+}
+
+/**
+ * Fontion qui affiche la page de contact
+ *
+ */
+function showContact() {   
+    require('view/frontend/contactView.php');
+}
+
+/**
+ * TEST
+ *
+ */
+function actionForm() {
+    $postContact = new PostContact();
+    $form = $postContact->form();
 }
