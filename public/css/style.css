@@ -175,17 +175,19 @@ footer {
 #container {
     margin-top: 57px;
     padding-top: 25px;
+    padding-bottom: 25px;
     height: 100%;
 }
 
 .style-container {
+    margin-top: 25px;
     margin-bottom: 25px;
     padding-bottom: 25px;
     padding-top: 25px;
     border-left: 3px solid #3399ff;
     background-color: #ffffff;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
 }
 
 .chapter-title {
@@ -212,6 +214,23 @@ footer {
 }
 
 /* FIN PAGE "BILLET SIMPLE POUR L'ALASKA" */
+
+/* DEBUT PAGE CONTACT */
+
+/* Container de la page contact */
+#container-contact {
+    margin-top: 57px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    height:88.6vh;
+}
+
+/* Titre "Formulaire de contact */
+.style-contact-title {
+    margin-bottom: 25px;
+}
+
+/* FIN PAGE CONTACT */
 
 @media screen and (max-width: 1082px) {
 
@@ -258,6 +277,21 @@ footer {
     .title-banner {
         font-size: 1.5em;
         margin-top: -48px;
+    }
+
+}
+
+@media screen and (max-width: 576px) {
+
+    .style-link {
+        text-align: center;
+    }
+
+    .style-container {
+        padding-bottom: 10px;
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
     }
 
 }
