@@ -1,4 +1,5 @@
 <?php
+namespace Openclassrooms\Projet_4\Model;
 
 require_once("Manager.php");
 
