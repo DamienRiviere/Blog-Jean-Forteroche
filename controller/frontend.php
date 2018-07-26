@@ -48,10 +48,9 @@ function showContact() {
 }
 
 /**
- * TEST
+ * Fonction qui affiche la page d'inscription
  *
  */
-function actionForm() {
-    $postContact = new PostContact();
-    $form = $postContact->form();
+function showRegister() {
+    require('view/frontend/registerView.php');
 }
