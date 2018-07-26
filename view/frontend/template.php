@@ -60,7 +60,7 @@
 
                         <!-- Inscription -->
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="#"><i class="fas fa-file-signature"></i> INSCRIPTION</a>
+                            <a class="nav-link text-dark" href="index.php?action=register"><i class="fas fa-file-signature"></i> INSCRIPTION</a>
                         </li>
 
                     </ul>
