@@ -2,7 +2,7 @@
 
 <?php ob_start(); ?>
 
-<div id="container-contact" class="bg-light">
+<div class="container-page bg-light">
 
     <div class="container">
         <h2 class="style-contact-title">Formulaire de contact :</h2>
