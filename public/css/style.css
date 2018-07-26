@@ -215,10 +215,8 @@ footer {
 
 /* FIN PAGE "BILLET SIMPLE POUR L'ALASKA" */
 
-/* DEBUT PAGE CONTACT */
-
-/* Container de la page contact */
-#container-contact {
+/* Container de la page contact, inscription */
+.container-page {
     margin-top: 57px;
     padding-top: 25px;
     padding-bottom: 25px;
@@ -230,7 +228,12 @@ footer {
     margin-bottom: 25px;
 }
 
-/* FIN PAGE CONTACT */
+/* Style du message d'erreur sur la page d'inscription */
+.style-register-error {
+    margin-top: 20px;
+    font-size: 1.2em;
+}
+
 
 @media screen and (max-width: 1082px) {
 
