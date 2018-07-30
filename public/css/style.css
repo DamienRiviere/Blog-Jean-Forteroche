@@ -47,10 +47,10 @@ body {
     font-size: 1.2em;
 }
 
-/* Icône "Signature" */
-.fa-file-signature {
+/* Icône "Déconnexion" */
+.fa-sign-out-alt {
     color : #3399ff;
-    font-size: 1.2em;
+    font-size: 1.2em
 }
 
 /* FIN HEADER */
