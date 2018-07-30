@@ -30,7 +30,7 @@
                     <label for="inputemail">Email :</label>
                     <input type="email" name="email" class="form-control" id="inputemail" value="<?php if(isset($email)) { echo $email; }?>">
                 </div>
-                <button type="submit" name="submit" class="btn btn-primary">Inscription</button>
+                <button type="submit" name="submit" class="btn btn-primary btn-block">Inscription</button>
             </div>
         </form>
         <p class="text-center text-danger font-weight-bold style-register-error"><?php if(isset($error)) { echo $error; } ?></p>

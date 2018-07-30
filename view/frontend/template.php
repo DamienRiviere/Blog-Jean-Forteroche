@@ -1,4 +1,8 @@
 <!-- Template de base du site -->
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -55,12 +59,13 @@
                         <!-- Connexion -->
                         <li class="nav-item">
                             <span class="glyphicon glyphicon-home"></span>
-                            <a class="nav-link text-dark" href="#"><i class="fas fa-sign-in-alt"></i> CONNEXION</a>
+                            <a class="nav-link text-dark" href="index.php?action=connection"><i class="fas fa-sign-in-alt"></i> CONNEXION</a>
                         </li>
 
-                        <!-- Inscription -->
+                        <!-- Déconnexion -->
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="index.php?action=register"><i class="fas fa-file-signature"></i> INSCRIPTION</a>
+                            <span class="glyphicon glyphicon-home"></span>
+                            <a class="nav-link text-dark" href="index.php?action=disconnection"><i class="fas fa-sign-out-alt"></i> DECONNEXION</a>
                         </li>
 
                     </ul>
