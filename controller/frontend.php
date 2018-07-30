@@ -2,9 +2,11 @@
 
 require_once('model/PostManager.php');
 require_once('model/PostContact.php');
+require_once('model/Profile.php');
 
 use \Openclassrooms\Projet_4\Model\PostManager;
 use \Openclassrooms\Projet_4\Model\PostContact;
+use \Openclassrooms\Projet_4\Model\Profile;
 
 /**
  * Fonction pour afficher les derniers posts sur la page d'accueil
@@ -53,4 +55,23 @@ function showContact() {
  */
 function showRegister() {
     require('view/frontend/registerView.php');
+}
+
+/**
+ * Fonction qui affiche la page de connexion
+ *
+ */
+function showConnection() {
+    require('view/frontend/connectionView.php');
+}
+
+/**
+ * Fonction qui affiche la page d'un profil en fonction de son id
+ *
+ */
+function showProfile() {
+    $profile = new Profile();
+    $userProfile = $profile->getProfile(intval($_GET['id']));
+
+    require('view/frontend/profileView.php');
 }
