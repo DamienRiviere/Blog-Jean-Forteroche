@@ -3,7 +3,7 @@
 require('controller/frontend.php');
 require('controller/backend.php');
 
-if (isset($_GET['action'])) {
+if (isset($_GET['action']) AND !empty($_GET['action'])) {
     // Action = listPosts alors on affiche la liste des chapitres
     if ($_GET['action'] == 'listPosts') {
         listPosts();
@@ -19,12 +19,33 @@ if (isset($_GET['action'])) {
         showContact();
     }
     // Action = register alors on affiche la page d'inscription
-    if ($_GET['action'] == 'register') {
+    else if ($_GET['action'] == 'register') {
         showRegister();
     }
     // Action = newRegister on commence la procédure d'inscription
-    if ($_GET['action'] == 'newRegister') {
+    else if ($_GET['action'] == 'newRegister') {
         checkRegister();
+    }
+    // Action = connection on affiche la page de connexion
+    else if ($_GET['action'] == 'connection') {
+        showConnection();
+    }
+    // Action = checkConnection on vérifie les informations à la connexion
+    else if ($_GET['action'] == "checkConnection") {
+        checkConnection();
+    }
+    // Action = profile on redirige l'utilisateur vers son profil après la connexion
+    else if ($_GET['action'] == 'profile') {
+        if (isset($_GET['id']) && $_GET['id'] > 0) {
+            showProfile();
+        }
+    }
+    // Action = disconnection on se déconnecte du profil
+    else if ($_GET['action'] == 'disconnection') {
+        disconnection();
+    }
+    else if ($_GET['action'] == 'editProfile') {
+        editProfile();
     }
     // TEST MAIL
     else if ($_GET['action'] == 'test') {
