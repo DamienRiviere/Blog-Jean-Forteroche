@@ -21,7 +21,7 @@ class ControllerProfile {
         {
             throw new Exception('<p>Page introuvable</p>');
         }
-        else if (isset($_GET['url']) == 'profile')
+        else if(isset($_GET['url']) == 'profile')
         {
             if(isset($_GET['id']) && $_GET['id'] > 0 && $_GET['id'] = $_SESSION['id'])
             {

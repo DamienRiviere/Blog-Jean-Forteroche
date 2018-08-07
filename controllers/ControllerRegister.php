@@ -61,10 +61,10 @@ class ControllerRegister {
     {
         if (!empty($_POST['pseudo']) AND !empty($_POST['password']) AND !empty($_POST['cpassword']) AND !empty($_POST['email'])) 
         {
-            $this->pseudo = $_POST['pseudo'];
-            $this->password = $_POST['password'];
-            $this->cPassword = $_POST['cpassword'];
-            $this->email = $_POST['email'];
+            $this->pseudo = htmlspecialchars($_POST['pseudo']);
+            $this->password = htmlspecialchars($_POST['password']);
+            $this->cPassword = htmlspecialchars($_POST['cpassword']);
+            $this->email = htmlspecialchars($_POST['email']);
 
             $this->checkPseudoLength();
         }    

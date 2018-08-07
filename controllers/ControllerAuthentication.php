@@ -57,8 +57,8 @@ class ControllerAuthentication {
     {
         if(!empty($_POST['emailconnect']) AND !empty($_POST['passwordconnect']))
         {
-            $this->email = $_POST['emailconnect'];
-            $this->password = $_POST['passwordconnect'];
+            $this->email = htmlspecialchars($_POST['emailconnect']);
+            $this->password = htmlspecialchars($_POST['passwordconnect']);
 
             $this->checkEmail();
         }
