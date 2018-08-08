@@ -53,4 +53,23 @@ class ChapterManager extends Model {
         $req->closeCursor();
     }
 
+    /**
+     * Fonction pour insérer un nouveau chapitre dans la base de données
+     *
+     * @param [type] $title
+     * @param [type] $author
+     * @param [type] $content
+     * @return return $insertChapter;
+     */
+    public function insertChapter($title, $author, $content)
+    {
+        $req = $this->getDb()->prepare('INSERT INTO posts(title, author, content, creation_date) VALUES (:title, :author, :content, NOW())');
+        $insertChapter = $req->execute(array(
+            'title' => $title,
+            'author' => $author,
+            'content' => $content
+        ));
+        return $insertChapter;
+    }
+
 }

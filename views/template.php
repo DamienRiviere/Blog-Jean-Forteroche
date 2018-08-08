@@ -9,6 +9,7 @@ if(!empty($_SESSION))
                 </a>              
                 <div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuLink\">
                     <a class=\"dropdown-item\" href=\"profile&id=" . $_SESSION['id'] . "\">PROFIL</a>
+                    <a class=\"dropdown-item\" href=\"newchapter\">PUBLIER UN CHAPITRE</a>
                     <div class=\"dropdown-divider\"></div>
                     <a class=\"dropdown-item\" href=\"disconnection\">DECONNEXION</a>
                 </div>
@@ -33,6 +34,9 @@ else
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
         <!-- Styles -->
         <link rel="stylesheet" href="public/css/style.css"/>
+        <!-- TinyMCE -->
+        <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+        <script>tinymce.init({ selector:'textarea', height : "350" });</script>
    </head>
 
     <body>
