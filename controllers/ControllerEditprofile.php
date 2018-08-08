@@ -7,6 +7,7 @@ class ControllerEditprofile {
 
     private $_view;
     private $_editprofileManager;
+    private $_register;
 
     protected $newPseudo;
     protected $newPassword;
@@ -31,7 +32,24 @@ class ControllerEditprofile {
         else if(isset($_POST['submit']))
         {
             $this->_editprofileManager = new EditprofileManager;
-            $this->checkNewProfile();
+            $this->_register = new RegisterManager;
+
+            if(isset($_POST['newPseudo']))
+            {
+                $this->checkFieldNewPseudo();
+            }
+
+            if(isset($_POST['newEmail']))
+            {
+                $this->checkFieldNewEmail();
+            }
+
+            if(isset($_POST['newPassword']))
+            {
+                $this->checkFieldNewPassword();
+            }
+            
+            $this->editProfile();
         }
         else if(isset($_SESSION['id']))
         {
@@ -54,54 +72,144 @@ class ControllerEditprofile {
     }
 
     /**
-     * Fonction qui vérifie les nouvelles informations du profil
+     * Fonction qui vérifie le champ pseudo
      *
      */
-    public function checkNewProfile()
+    public function checkFieldNewPseudo()
     {
+        // Vérification du pseudo
         if(isset($_POST['newPseudo']) AND !empty($_POST['newPseudo']) AND $_POST['newPseudo'] != $_SESSION['pseudo'])
         {
             $this->newPseudo = htmlspecialchars($_POST['newPseudo']);
+            $this->checkLengthNewPseudo();
+        }
+        else
+        {
+            $this->error = "Le pseudo est identique ou vide !";
+        }
+    }
+
+    /**
+     * Fonction qui vérifie la longueur du pseudo 
+     *
+     */
+    public function checkLengthNewPseudo()
+    {
+        $pseudoLength = strlen($this->newPseudo);
+
+        if($pseudoLength <= 255)
+        {
+            $this->checkNewPseudoExist();
+        }
+        else
+        {
+            $this->error = "Votre pseudo ne doit pas dépasser 255 caractères !";
+        } 
+    }
+
+    /**
+     * Fonction qui vérifie que le pseudo n'est pas déjà présent dans la base de données
+     * si c'est le cas le nouveau pseudo remplace l'ancien
+     *
+     * @return void
+     */
+    public function checkNewPseudoExist()
+    {
+        $checkNewPseudo = $this->_register->checkPseudo($this->newPseudo);
+
+        if($checkNewPseudo == 0)
+        {
             $this->_editprofileManager->updatePseudo($this->newPseudo, $_SESSION['id']);
             $_SESSION['pseudo'] = $_POST['newPseudo'];
             header('Location: profile&id=' . $_SESSION['id']);
         }
         else
         {
-            $this->error = "Le pseudo est identique ou vide !";
+            $this->error = "Pseudo déjà utilisé !";
         }
+    }
 
+    /**
+     * Fonction qui vérifie le champ email
+     *
+     */
+    public function checkFieldNewEmail()
+    {
+        // Vérification de l'email
         if(isset($_POST['newEmail']) AND !empty($_POST['newEmail']) AND $_POST['newEmail'] != $_SESSION['email'])
         {
             $this->newEmail = htmlspecialchars($_POST['newEmail']);
-            $this->_editprofileManager->updateEmail($this->newEmail, $_SESSION['id']);
-            $_SESSION['email'] = $_POST['newEmail'];
-            header('Location: profile&id=' . $_SESSION['id']);
+            $this->checkNewEmailExist();
         }
         else
         {
             $this->error = "L'adresse email est identique ou vide !";
         }
+    }
 
-        if(isset($_POST['newPassword']) AND !empty($_POST['newPassword']) AND isset($_POST['newcPassword']) AND !empty($_POST['newcPassword']))
+    /**
+     * Fonction qui vérifie que l'email n'est pas déjà présent dans la base données
+     * si c'est le cas le nouvel email remplace l'ancien
+     *
+     */
+    public function checkNewEmailExist()
+    {
+        $checkNewEmail = $this->_register->checkEmail($this->newEmail);
+
+        if(filter_var($this->newEmail, FILTER_VALIDATE_EMAIL))
         {
-            $this->newPassword = htmlspecialchars($_POST['newPassword']);
-            $this->newcPassword = htmlspecialchars($_POST['newcPassword']);
-
-            if($this->newPassword == $this->newcPassword)
+            if($checkNewEmail == 0)
             {
-                $pass_hache = password_hash($this->newPassword, PASSWORD_DEFAULT);
-                $this->_editprofileManager->updatePassword($pass_hache, $_SESSION['id']);
+                $this->_editprofileManager->updateEmail($this->newEmail, $_SESSION['id']);
+                $_SESSION['email'] = $_POST['newEmail'];
                 header('Location: profile&id=' . $_SESSION['id']);
             }
             else
             {
-                $this->error = "Vos deux mot de passe ne correspondent pas !";
+                $this->error = "Adresse email déjà utilisée !";
             }
         }
+        else
+        {
+            $this->error = "Votre adresse mail n'est pas valide !";
+        }   
+    }
 
-        $this->editProfile();
+    /**
+     * Fonction qui vérifie les champs des mots de passe
+     *
+     */
+    public function checkFieldNewPassword()
+    {
+        if(isset($_POST['newPassword']) AND !empty($_POST['newPassword']) AND isset($_POST['newcPassword']) AND !empty($_POST['newcPassword']))
+        {
+            $this->newPassword = htmlspecialchars($_POST['newPassword']);
+            $this->newcPassword = htmlspecialchars($_POST['newcPassword']);
+            $this->checkNewPassword();
+        }
+        else
+        {
+            $this->error = "Veuillez remplir les champs des mots de passe !";
+        }
+    }
 
+    /**
+     * Fonction qui vérifie que les 2 champs de mots de passe sont égaux
+     * si c'est le cas on hache le mot de passe et on remplace l'ancien mdp par le nouveau dans la base de données
+     *
+     */
+    public function checkNewPassword()
+    {
+        if($this->newPassword == $this->newcPassword)
+        {
+            $pass_hache = password_hash($this->newPassword, PASSWORD_DEFAULT);
+            $this->_editprofileManager->updatePassword($pass_hache, $_SESSION['id']);
+            header('Location: profile&id=' . $_SESSION['id']);
+        }
+        else
+        {
+            $this->error = "Vos deux mot de passe ne correspondent pas !";
+        }
     }
 
 }

@@ -133,7 +133,7 @@ class ControllerRegister {
         }
         else
         {
-            $error = "Votre adresse mail n'est pas valide !";
+            $this->error = "Votre adresse mail n'est pas valide !";
         }               
     }
 
