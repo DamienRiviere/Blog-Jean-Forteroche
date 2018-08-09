@@ -59,7 +59,7 @@ class ChapterManager extends Model {
      * @param [type] $title
      * @param [type] $author
      * @param [type] $content
-     * @return return $insertChapter;
+     * @return $insertChapter;
      */
     public function insertChapter($title, $author, $content)
     {
@@ -70,6 +70,19 @@ class ChapterManager extends Model {
             'content' => $content
         ));
         return $insertChapter;
+    }
+
+    /**
+     * Fonction pour supprimer un chapitre de la base de données
+     *
+     * @param [type] $id
+     * @return $deleteChapter;
+     */
+    public function deleteChapter($id)
+    {
+        $req = $this->getDb()->prepare('DELETE FROM posts WHERE id = ?');
+        $deleteChapter = $req->execute(array($id));
+        return $deleteChapter;
     }
 
 }

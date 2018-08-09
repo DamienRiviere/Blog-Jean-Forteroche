@@ -7,9 +7,11 @@ if(!empty($_SESSION))
                 <a class=\"btn btn-outline-primary dropdown-toggle\" href=\"#\" role=\"button\" id=\"dropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
                 Bienvenue " . $_SESSION['pseudo'] . "
                 </a>              
-                <div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuLink\">
+                <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"dropdownMenuLink\">
                     <a class=\"dropdown-item\" href=\"profile&id=" . $_SESSION['id'] . "\">PROFIL</a>
+                    <div class=\"dropdown-divider\"></div>
                     <a class=\"dropdown-item\" href=\"newchapter\">PUBLIER UN CHAPITRE</a>
+                    <a class=\"dropdown-item\" href=\"editionchapter\">MODIFIER/SUPPRIMER UN CHAPITRE</a>
                     <div class=\"dropdown-divider\"></div>
                     <a class=\"dropdown-item\" href=\"disconnection\">DECONNEXION</a>
                 </div>
