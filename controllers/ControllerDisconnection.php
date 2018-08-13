@@ -14,7 +14,7 @@ class ControllerDisconnection {
     {
         if(isset($url) && count($url) > 1)
         {
-            throw new Exception('Page introuvable');
+            echo "Error 404";
         }
         else if(isset($_GET['url']) == 'disconnection')
         {
@@ -26,7 +26,7 @@ class ControllerDisconnection {
      * Fonction qui sert à un utilisateur pour se déconnecter
      *
      */
-    public function disconnection()
+    private function disconnection()
     {
         session_start();
         $_SESSION = array();

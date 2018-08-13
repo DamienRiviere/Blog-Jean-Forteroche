@@ -19,7 +19,7 @@ class ControllerProfile {
     {
         if(isset($url) && count($url) > 1)
         {
-            throw new Exception('<p>Page introuvable</p>');
+            echo "Error 404";
         }
         else if(isset($_GET['url']) == 'profile')
         {
@@ -29,7 +29,7 @@ class ControllerProfile {
             }
             else
             {
-                throw new Exception('<p>Profil introuvable</p>');
+                throw new Exception('Profil introuvable');
             }
         }
     }

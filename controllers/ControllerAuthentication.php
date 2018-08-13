@@ -24,7 +24,7 @@ class ControllerAuthentication {
     {
         if(isset($url) && count($url) > 1)
         {
-            throw new Exception('Page introuvable');
+            echo "Error 404";
         }
         else if(isset($_POST['submit']))
         {
@@ -53,7 +53,7 @@ class ControllerAuthentication {
      * Fonction qui récupère les variables POST et affiche la vue de la page d'inscription
      *
      */
-    public function checkFields()
+    private function checkFields()
     {
         if(!empty($_POST['emailconnect']) AND !empty($_POST['passwordconnect']))
         {
@@ -76,7 +76,7 @@ class ControllerAuthentication {
      * dans la base de données
      *
      */
-    public function checkEmail()
+    private function checkEmail()
     {
         if(filter_var($this->email, FILTER_VALIDATE_EMAIL))
         {
@@ -98,13 +98,14 @@ class ControllerAuthentication {
      * @param [type] $checkPass
      * @param [type] $checkUser
      */
-    public function checkPassword($checkPass, $checkUser)
+    private function checkPassword($checkPass, $checkUser)
     {
         if($checkPass)
         {
             $_SESSION['id'] = $checkUser['id'];
             $_SESSION['pseudo'] = $checkUser['pseudo'];
             $_SESSION['email'] = $checkUser['email'];
+
             header("Location: home");
         }
         else
@@ -112,6 +113,5 @@ class ControllerAuthentication {
             $this->error = "Mauvais identifiant ou mot de passe !";
         }
     }
-
-    
+  
 }

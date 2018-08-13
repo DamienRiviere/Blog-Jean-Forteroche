@@ -21,12 +21,16 @@ class ControllerEditionchapter {
     {
         if(isset($url) && count($url) > 1)
         {
+            echo "Error 404";
+        }
+        else if(isset($_GET['url']) == 'editionchapter' AND empty($_SESSION))
+        {
             throw new Exception('Page introuvable');
         }
         else if(isset($_GET['deletechapter']))
         {
             $this->id = $_GET['id'];
-            $this->deleteChapter($this->id);
+            $this->deleteChapter($this->id);     
         }
         else
         {
@@ -38,7 +42,7 @@ class ControllerEditionchapter {
      * Fonction qui génère la vue et affiche les données des chapitres
      *
      */
-    public function editionChapter()
+    private function editionChapter()
     {
         $this->_chapterManager = new ChapterManager;
         $chapters = $this->_chapterManager->getChapters();
@@ -52,11 +56,11 @@ class ControllerEditionchapter {
      *
      * @param [type] $id
      */
-    public function deleteChapter($id)
+    private function deleteChapter($id)
     {
         $this->_chapterManager = new ChapterManager;
         $deleteChapter = $this->_chapterManager->deleteChapter($id);
-        header('Location: editionchapter');   
+        header('Location: editionchapter');
     }
 
 }

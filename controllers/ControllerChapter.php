@@ -19,11 +19,32 @@ class ControllerChapter {
     {
         if(isset($url) && count($url) > 1)
         {
-            throw new Exception('Page introuvable');
+            echo "Error 404";
+        }
+        else if(isset($_GET['id']))
+        {
+            $this->id = $_GET['id'];
+            $this->checkId($this->id);
+        }
+    }
+
+    /**
+     * Fonction ou l'on vérifie que le chapitre existe via son Id
+     *
+     * @param [type] $id
+     */
+    public function checkId($id)
+    {
+        $this->_chapterManager = new ChapterManager;
+        $checkChapterId = $this->_chapterManager->checkChapterId($id);
+
+        if($checkChapterId == 0)
+        {
+            throw New Exception('Chapitre introuvable !');
         }
         else
         {
-            $this->chapter($_GET['id']);
+            $this->chapter($id);
         }
     }
 

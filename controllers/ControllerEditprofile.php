@@ -6,7 +6,7 @@ require_once('views/View.php');
 class ControllerEditprofile {
 
     private $_view;
-    private $_editprofileManager;
+    private $_profileManager;
     private $_register;
 
     protected $newPseudo;
@@ -27,11 +27,11 @@ class ControllerEditprofile {
     {
         if(isset($url) && count($url) > 1)
         {
-            throw new Exception('Page introuvable');
+            echo "Error 404";
         }
         else if(isset($_POST['submit']))
         {
-            $this->_editprofileManager = new EditprofileManager;
+            $this->_profileManager = new ProfileManager;
             $this->_register = new RegisterManager;
 
             if(isset($_POST['newPseudo']))
@@ -65,7 +65,7 @@ class ControllerEditprofile {
      * Fonction qui génère la vue de la page
      *
      */
-    public function editProfile()
+    private function editProfile()
     {
         $this->_view = new View('Editprofile');
         $this->_view->generate(array('error' => $this->error));
@@ -75,7 +75,7 @@ class ControllerEditprofile {
      * Fonction qui vérifie le champ pseudo
      *
      */
-    public function checkFieldNewPseudo()
+    private function checkFieldNewPseudo()
     {
         // Vérification du pseudo
         if(isset($_POST['newPseudo']) AND !empty($_POST['newPseudo']) AND $_POST['newPseudo'] != $_SESSION['pseudo'])
@@ -93,7 +93,7 @@ class ControllerEditprofile {
      * Fonction qui vérifie la longueur du pseudo 
      *
      */
-    public function checkLengthNewPseudo()
+    private function checkLengthNewPseudo()
     {
         $pseudoLength = strlen($this->newPseudo);
 
@@ -111,15 +111,14 @@ class ControllerEditprofile {
      * Fonction qui vérifie que le pseudo n'est pas déjà présent dans la base de données
      * si c'est le cas le nouveau pseudo remplace l'ancien
      *
-     * @return void
      */
-    public function checkNewPseudoExist()
+    private function checkNewPseudoExist()
     {
         $checkNewPseudo = $this->_register->checkPseudo($this->newPseudo);
 
         if($checkNewPseudo == 0)
         {
-            $this->_editprofileManager->updatePseudo($this->newPseudo, $_SESSION['id']);
+            $this->_profileManager->updatePseudo($this->newPseudo, $_SESSION['id']);
             $_SESSION['pseudo'] = $_POST['newPseudo'];
             header('Location: profile&id=' . $_SESSION['id']);
         }
@@ -133,7 +132,7 @@ class ControllerEditprofile {
      * Fonction qui vérifie le champ email
      *
      */
-    public function checkFieldNewEmail()
+    private function checkFieldNewEmail()
     {
         // Vérification de l'email
         if(isset($_POST['newEmail']) AND !empty($_POST['newEmail']) AND $_POST['newEmail'] != $_SESSION['email'])
@@ -152,7 +151,7 @@ class ControllerEditprofile {
      * si c'est le cas le nouvel email remplace l'ancien
      *
      */
-    public function checkNewEmailExist()
+    private function checkNewEmailExist()
     {
         $checkNewEmail = $this->_register->checkEmail($this->newEmail);
 
@@ -160,7 +159,7 @@ class ControllerEditprofile {
         {
             if($checkNewEmail == 0)
             {
-                $this->_editprofileManager->updateEmail($this->newEmail, $_SESSION['id']);
+                $this->_profileManager->updateEmail($this->newEmail, $_SESSION['id']);
                 $_SESSION['email'] = $_POST['newEmail'];
                 header('Location: profile&id=' . $_SESSION['id']);
             }
@@ -179,7 +178,7 @@ class ControllerEditprofile {
      * Fonction qui vérifie les champs des mots de passe
      *
      */
-    public function checkFieldNewPassword()
+    private function checkFieldNewPassword()
     {
         if(isset($_POST['newPassword']) AND !empty($_POST['newPassword']) AND isset($_POST['newcPassword']) AND !empty($_POST['newcPassword']))
         {
@@ -198,12 +197,12 @@ class ControllerEditprofile {
      * si c'est le cas on hache le mot de passe et on remplace l'ancien mdp par le nouveau dans la base de données
      *
      */
-    public function checkNewPassword()
+    private function checkNewPassword()
     {
         if($this->newPassword == $this->newcPassword)
         {
             $pass_hache = password_hash($this->newPassword, PASSWORD_DEFAULT);
-            $this->_editprofileManager->updatePassword($pass_hache, $_SESSION['id']);
+            $this->_profileManager->updatePassword($pass_hache, $_SESSION['id']);
             header('Location: profile&id=' . $_SESSION['id']);
         }
         else

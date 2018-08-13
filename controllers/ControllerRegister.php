@@ -14,6 +14,7 @@ class ControllerRegister {
     protected $email;
 
     public $error;
+    public $msg;
 
     /**
      * Constructeur ou l'on controle qu'il n'y est pas plusieurs paramètre dans l'URL 
@@ -26,7 +27,7 @@ class ControllerRegister {
     {
         if(isset($url) && count($url) > 1)
         {
-            throw new Exception('Page introuvable');
+            echo "Error 404";
         }
         else if(isset($_POST['submit']))
         {
@@ -48,6 +49,7 @@ class ControllerRegister {
         $this->_view = new View('Register');
         $this->_view->generate(array(
             'error' => $this->error,
+            'msg' => $this->msg,
             'pseudo' => $this->pseudo,
             'email' => $this->email
         ));
@@ -57,7 +59,7 @@ class ControllerRegister {
      * Fonction qui récupère les variables POST et affiche la vue de la page d'inscription
      *
      */
-    public function checkFields()
+    private function checkFields()
     {
         if (!empty($_POST['pseudo']) AND !empty($_POST['password']) AND !empty($_POST['cpassword']) AND !empty($_POST['email'])) 
         {
@@ -80,7 +82,7 @@ class ControllerRegister {
      * Fonction qui vérifie que la taille du pseudo ne dépasse pas les 255 caractères
      *
      */
-    public function checkPseudoLength()
+    private function checkPseudoLength()
     {
         $pseudoLength = strlen($this->pseudo);
 
@@ -98,7 +100,7 @@ class ControllerRegister {
      * Fonction qui vérifie que le pseudo n'est pas déjà existant dans la base de données
      *
      */
-    public function checkPseudoExist()
+    private function checkPseudoExist()
     {
         $checkPseudo = $this->_register->checkPseudo($this->pseudo);
 
@@ -116,7 +118,7 @@ class ControllerRegister {
      * Fonction qui vérifie que l'adresse mail n'est pas déjà existante dans la base de données
      *
      */
-    public function checkEmailExist()
+    private function checkEmailExist()
     {
         $checkEmail = $this->_register->checkEmail($this->email);
 
@@ -143,13 +145,13 @@ class ControllerRegister {
      * à la base de données
      *
      */
-    public function checkPassword()
+    private function checkPassword()
     {
         if($this->password == $this->cPassword)
         {
             $pass_hache = password_hash($this->password, PASSWORD_DEFAULT);
             $newRegister = $this->_register->newRegister($this->pseudo, $pass_hache, $this->email);
-            $this->error = "Votre compte a bien été créé ! <a href=\"authentication\">Me connecter</a>";
+            $this->msg = "Votre compte a bien été créé ! <a href=\"authentication\">Me connecter</a>";
         }
         else
         {
