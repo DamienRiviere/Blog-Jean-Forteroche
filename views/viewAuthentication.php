@@ -15,11 +15,6 @@
                 <input type="password" name="passwordconnect" id="passwordconnect" class="form-control" placeholder="Mot de passe">
             </div>
             <div class="col-lg-4 offset-lg-4">
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox"> Se souvenir de moi
-                    </label>
-                </div>
                 <button class="btn btn-primary btn-block" type="submit" name="submit">Connexion</button>
             </div>
         </form>

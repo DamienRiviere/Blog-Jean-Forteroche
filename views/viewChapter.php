@@ -1,6 +1,6 @@
 <?php $this->_t = $chapter->title() ?>
 
-<div id="container" class="bg-light">
+<div class="container-page bg-light">
     <div class="container style-link">
         <a href="book">Retour sur la liste des chapitres</a>
     </div>

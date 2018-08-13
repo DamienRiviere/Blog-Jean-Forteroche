@@ -21,8 +21,8 @@
                     <td><?= $chapter->date() ?></td>
                     <td>
                         <div class="btn-group btn-group-sm" role="group">
-                            <a href="" class="btn btn-primary">Modifier</a>
-                            <a href="" class="btn btn-danger" data-toggle="modal" data-target="#modalDeleteChapter">Supprimer</a>
+                            <a href="editchapter&amp;id=<?= $chapter->id() ?>" class="btn btn-primary">Modifier</a>
+                            <a href="editionchapter&amp;deletechapter&amp;id=<?= $chapter->id() ?>" class="btn btn-danger">Supprimer</a>
                         </div>
                     </td>
                 </tr>
@@ -32,7 +32,7 @@
     </div>
 </div>
 
-<!-- Modal -->
+<!-- Modal 
 <div class="modal fade" id="modalDeleteChapter" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -46,12 +46,12 @@
                 Êtes-vous sûr de vouloir supprimer le chapitre ?   
             </div>
             <div class="modal-footer">
-                <a href="editionchapter&amp;deletechapter&amp;id=<?= $chapter->id() ?>" class="btn btn-danger">Supprimer</a>
+                <a href="" class="btn btn-danger">Supprimer</a>
                 <a href="" class="btn btn-secondary" data-dismiss="modal">Annuler</a>
             </div>
         </div>
     </div>
 </div>
-
+-->
 
 
