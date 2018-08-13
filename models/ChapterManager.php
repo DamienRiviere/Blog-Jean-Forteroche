@@ -85,4 +85,39 @@ class ChapterManager extends Model {
         return $deleteChapter;
     }
 
+    /**
+     * Fonction pour mettre à jour un chapitre
+     *
+     * @param [type] $id
+     * @param [type] $title
+     * @param [type] $author
+     * @param [type] $content
+     * @return $updateChapter;
+     */
+    public function updateChapter($id, $title, $author, $content)
+    {
+        $req = $this->getDb()->prepare('UPDATE posts SET title = :newtitle, author = :newauthor, content = :newcontent, creation_date = NOW() WHERE id =' . $id);
+        $updateChapter = $req->execute(array(
+            'newtitle' => $title,
+            'newauthor' => $author,
+            'newcontent' => $content
+        ));
+        return $updateChapter;
+    }
+
+    /**
+     * Fonction pour vérifier qu'un id correponde bien à un chapitre
+     *
+     * @param [type] $id
+     * @return $checkChapterId;
+     */
+    public function checkChapterId($id)
+    {
+        $req = $this->getDb()->prepare('SELECT * FROM posts WHERE id = ?');
+        $req->execute(array($id));
+        $checkChapterId = $req->rowCount();
+        return $checkChapterId;
+        $req->closeCursor();
+    }
+
 }
