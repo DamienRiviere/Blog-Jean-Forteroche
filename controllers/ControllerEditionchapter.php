@@ -27,14 +27,21 @@ class ControllerEditionchapter {
         {
             throw new Exception('Page introuvable');
         }
-        else if(isset($_GET['deletechapter']))
+        else if(isset($_GET['url']) == 'editionchapter' AND $_SESSION['slug'] == 'admin')
         {
-            $this->id = $_GET['id'];
-            $this->deleteChapter($this->id);     
+            if(isset($_GET['deletechapter']))
+            {
+                $this->id = $_GET['id'];
+                $this->deleteChapter($this->id);
+            }
+            else
+            {
+                $this->editionChapter();
+            }
         }
         else
         {
-            $this->editionChapter();
+            throw new Exception('Accès refusé !');
         }
     }
 

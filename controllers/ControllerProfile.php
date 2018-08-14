@@ -21,15 +21,15 @@ class ControllerProfile {
         {
             echo "Error 404";
         }
+        else if(empty($_SESSION))
+        {
+            throw new Exception('Profil introuvable');
+        }
         else if(isset($_GET['url']) == 'profile')
         {
             if(isset($_GET['id']) && $_GET['id'] > 0 && $_GET['id'] = $_SESSION['id'])
             {
                 $this->profile($_GET['id']);
-            }
-            else
-            {
-                throw new Exception('Profil introuvable');
             }
         }
     }

@@ -33,7 +33,7 @@ class ControllerChapter {
      *
      * @param [type] $id
      */
-    public function checkId($id)
+    private function checkId($id)
     {
         $this->_chapterManager = new ChapterManager;
         $checkChapterId = $this->_chapterManager->checkChapterId($id);

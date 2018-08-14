@@ -33,15 +33,22 @@ class ControllerEditchapter {
         {
             throw new Exception('Page introuvable');
         }
-        else if(isset($_POST['submit']))
+        else if(isset($_GET['url']) == 'editchapter' AND $_SESSION['slug'] == 'admin')
         {
-            $this->id = $_GET['id'];
-            $this->updateChapter($this->id);
-            $this->editChapter($this->id);
+            if(isset($_POST['submit']))
+            {
+                $this->id = $_GET['id'];
+                $this->updateChapter($this->id);
+                $this->editChapter($this->id);
+            }
+            else
+            {
+                $this->editChapter($_GET['id']);
+            }
         }
         else
         {
-            $this->editChapter($_GET['id']);
+            throw new Exception('Accès refusé !'); 
         }
     }
 

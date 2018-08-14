@@ -32,15 +32,22 @@ class ControllerNewchapter {
         {
             throw new Exception('Page introuvable');
         }
-        else if(isset($_POST['submit']))
+        else if(isset($_GET['url']) == 'newchapter' AND $_SESSION['slug'] == 'admin')
         {
-            $this->_chapterManager = new ChapterManager;
-            $this->checkChapter();
-            $this->newChapter();
+            if(isset($_POST['submit']))
+            {
+                $this->_chapterManager = new ChapterManager;
+                $this->checkChapter();
+                $this->newChapter();
+            }
+            else
+            {
+                $this->newChapter();
+            }
         }
         else
         {
-            $this->newChapter();
+            throw new Exception('Accès refusé !');
         }
     }
 

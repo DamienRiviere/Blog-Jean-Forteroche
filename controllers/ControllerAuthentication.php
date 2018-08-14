@@ -93,7 +93,6 @@ class ControllerAuthentication {
 
     /**
      * Fonction qui vérifie le mot de passe associé à l'adresse mail entrée dans le champ
-     * et redirige sur la page de profil du membre
      *
      * @param [type] $checkPass
      * @param [type] $checkUser
@@ -105,6 +104,9 @@ class ControllerAuthentication {
             $_SESSION['id'] = $checkUser['id'];
             $_SESSION['pseudo'] = $checkUser['pseudo'];
             $_SESSION['email'] = $checkUser['email'];
+            $_SESSION['name'] = $checkUser['name'];
+            $_SESSION['slug'] = $checkUser['slug'];
+            $_SESSION['level'] = $checkUser['level'];
 
             header("Location: home");
         }

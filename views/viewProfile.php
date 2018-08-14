@@ -6,6 +6,7 @@
         <h2>Profil de <?= $profile->pseudo(); ?></h2>
         <p>Email : <?= $profile->email(); ?></p>
         <p>Date d'inscription : <?= $profile->dateInscription(); ?></p>
+        <p>Statut : <?= $_SESSION['name'] ?></p>
         <a href="editprofile">Editer mon profil</a>
     </div>
 
