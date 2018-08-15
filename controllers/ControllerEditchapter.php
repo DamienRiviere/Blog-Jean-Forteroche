@@ -33,8 +33,11 @@ class ControllerEditchapter {
         {
             throw new Exception('Page introuvable');
         }
-        else if(isset($_GET['url']) == 'editchapter' AND $_SESSION['slug'] == 'admin')
+        else if(isset($_GET['url']) == 'editchapter' AND isset($_GET['id']) AND $_SESSION['slug'] == 'admin' AND $_SESSION['level'] = '2') 
         {
+            $this->id = $_GET['id'];
+            $this->checkId($this->id);
+
             if(isset($_POST['submit']))
             {
                 $this->id = $_GET['id'];
@@ -43,7 +46,7 @@ class ControllerEditchapter {
             }
             else
             {
-                $this->editChapter($_GET['id']);
+                    $this->editChapter($_GET['id']);
             }
         }
         else
@@ -68,6 +71,22 @@ class ControllerEditchapter {
             'error' => $this->error,
             'msg' => $this->msg
         ));
+    }
+
+    /**
+     * Fonction ou l'on vérifie que le chapitre existe via son Id
+     *
+     * @param [type] $id
+     */
+    private function checkId($id)
+    {
+        $this->_chapterManager = new ChapterManager;
+        $checkChapterId = $this->_chapterManager->checkChapterId($id);
+
+        if($checkChapterId == 0)
+        {
+            throw New Exception('Chapitre introuvable !');
+        }
     }
 
     /**
