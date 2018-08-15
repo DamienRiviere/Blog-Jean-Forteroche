@@ -27,7 +27,7 @@ class ControllerEditionchapter {
         {
             throw new Exception('Page introuvable');
         }
-        else if(isset($_GET['url']) == 'editionchapter' AND $_SESSION['slug'] == 'admin')
+        else if(isset($_GET['url']) == 'editionchapter' AND $_SESSION['slug'] == 'admin' AND $_SESSION['level'] == '2')
         {
             if(isset($_GET['deletechapter']))
             {

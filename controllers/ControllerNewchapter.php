@@ -32,7 +32,7 @@ class ControllerNewchapter {
         {
             throw new Exception('Page introuvable');
         }
-        else if(isset($_GET['url']) == 'newchapter' AND $_SESSION['slug'] == 'admin')
+        else if(isset($_GET['url']) == 'newchapter' AND $_SESSION['slug'] == 'admin' AND $_SESSION['level'] == '2')
         {
             if(isset($_POST['submit']))
             {
