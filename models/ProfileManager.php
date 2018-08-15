@@ -10,7 +10,7 @@ class ProfileManager extends Model {
      */
     public function getProfile($id)
     {
-        $req = $this->getDb()->prepare('SELECT * FROM members WHERE id = ?');
+        $req = $this->getDb()->prepare('SELECT id, pseudo, email, DATE_FORMAT(date_inscription, \'%d/%m/%Y\') AS creation_date_fr  FROM members WHERE id = ?');
         $req->execute(array($id));
         $data = $req->fetch();
         return new Profile($data);

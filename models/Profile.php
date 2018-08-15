@@ -6,7 +6,7 @@ class Profile {
     private $_pseudo;
     private $_pass;
     private $_email;
-    private $_date_inscription;
+    private $_creation_date_fr;
 
     /**
      * Constructeur qui hydrate nos instances
@@ -94,10 +94,10 @@ class Profile {
      *
      * @param [type] $date
      */
-    public function setDate_inscription($date)
+    public function setCreation_date_fr($date)
     {
        
-        $this->_date_inscription = $date;
+        $this->_creation_date_fr = $date;
        
     }
 
@@ -148,7 +148,7 @@ class Profile {
      */
     public function dateInscription()
     {
-        return $this->_date_inscription;
+        return $this->_creation_date_fr;
     }
 
 

@@ -10,7 +10,7 @@ class ChapterManager extends Model {
     public function getChapters()
     {
         $var = [];
-        $req = $this->getDb()->prepare('SELECT id, title, content, author, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date');
+        $req = $this->getDb()->prepare('SELECT id, title, content, author, DATE_FORMAT(creation_date, \'%d/%m/%Y\') AS creation_date_fr FROM posts ORDER BY creation_date');
         $req->execute();
         while($data = $req->fetch(PDO::FETCH_ASSOC))
         {
