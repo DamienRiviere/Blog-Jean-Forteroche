@@ -7,7 +7,7 @@
             <h2 class="chapter-title"><?= $chapter->title() ?></h2>  
         </div>
         <p class="date-author text-primary"><?= $chapter->author() ?> le <?= $chapter->date() ?></p>
-        <p class="content"><?= nl2br(substr($chapter->content(), 0, 500)) ?></p>
+        <p class="content"><?= nl2br(html_entity_decode(substr($chapter->content(), 0, 500))) ?></p>
         <br>
         <a href="chapter&amp;id=<?= $chapter->id() ?>" class="btn btn-outline-primary">Voir le chapitre</a>
     </div>

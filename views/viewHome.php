@@ -21,7 +21,7 @@
                 <div class="carousel-caption text-left">
                     <h1 class="style_title">Bienvenue sur le blog de Jean Forteroche !</h1>
                     <p class="style_texte">Pour mon prochain roman "Billet simple pour l'Alaska", j'ai souhaité pouvoir publier les chapitres en ligne sur mon blog. Un chapitre sortira par mois, bonne lecture !</p>
-                    <p><a class="btn btn-lg btn-primary btn-carousel" href="#" role="button">Voir le dernier chapitre</a></p>
+                    <p><a class="btn btn-lg btn-primary btn-carousel" href="#lastChapter" role="button">Voir les derniers chapitres</a></p>
                 </div>
             </div>
         </div>
@@ -32,9 +32,9 @@
             <!-- Description slider 2 -->
             <div class="container">
                 <div class="carousel-caption text-left">
-                    <h2 class="style_title">Prochain roman</h2>
+                    <h2 class="style_title">Billet simple pour l'Alaska</h2>
                     <p class="style_texte">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    <p><a class="btn btn-lg btn-primary btn-carousel" href="#" role="button">Voir prochain projet</a></p>
+                    <p><a class="btn btn-lg btn-primary btn-carousel" href="book" role="button">Voir le livre</a></p>
                 </div>
             </div>
         </div>
@@ -47,7 +47,7 @@
                 <div class="carousel-caption text-left">
                     <h2 class="style_title">Me contacter</h2>
                     <p class="style_texte">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    <p><a class="btn btn-lg btn-primary btn-carousel" href="#" role="button">Contact</a></p>
+                    <p><a class="btn btn-lg btn-primary btn-carousel" href="contact" role="button">Contact</a></p>
                 </div>
             </div>
         </div>
@@ -78,13 +78,14 @@
 <main role="main">
 
     <section class="jumbotron text-center">
+        <img src="public/images/portrait_jean_forteroche.jpg" class="rounded mx-auto d-block img-thumbnail" id="jean-forteroche" alt="Portrait de Jean Forteroche">
         <div class="container">
             <h1>Qui suis-je ?</h1>
-            <p class="text-jumbotron">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p class="text-jumbotron">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         </div>
     </section>
 
-    <div class="py-5 bg-light">
+    <div class="py-5 bg-light" id="lastChapter">
         <div class="container">
             <h1 class="title-publication">Dernières publications :</h1>
             <div class="row">
@@ -94,7 +95,7 @@
                         <img class="card-img-top" src="public/images/thumbnail1.jpg" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title"><?= $chapter->title() ?></h5>
-                            <p class="card-text"><?= nl2br(substr($chapter->content(), 0, 250)) ?></p>
+                            <p class="card-text"><?= nl2br(html_entity_decode(substr($chapter->content(), 0, 300))) ?></p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <!-- Bouton pour afficher le chapitre -->
                                 <a class="btn btn-primary" href="chapter&amp;id=<?= $chapter->id() ?>" role="button">Voir chapitre</a>

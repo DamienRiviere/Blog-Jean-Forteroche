@@ -51,7 +51,7 @@ else
         <link rel="stylesheet" href="public/css/style.css"/>
         <!-- TinyMCE -->
         <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
-        <script>tinymce.init({ selector:'textarea', height : "350" });</script>
+        <script>tinymce.init({ selector:'#newchapter', height : "350" });</script>
    </head>
 
     <body>
@@ -61,7 +61,7 @@ else
             <!-- DEBUT BARRE DE NAVIGATION FIXE -->
             <nav class="navbar navbar-expand-md navbar-dark fixed-top" id="background-navbar">
 
-                <a id="navbar-title" href="#"><strong>Jean<br>FORTEROCHE</strong></a>
+                <a id="navbar-title" href="#carouselIndicators"><strong>Jean<br>FORTEROCHE</strong></a>
 
                 <!-- Bouton mobile -->
                 <button class="navbar-toggler bg-primary" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -121,6 +121,7 @@ else
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+        <script src="public/js/scroll.js"></script>
     </body>
 
 </html>

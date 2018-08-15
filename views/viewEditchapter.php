@@ -13,7 +13,7 @@
                 <input type="text" name="new_chapter_title" class="form-control" id="inputpseudo" value="<?= $chapter->title() ?>">
             </div>
             <div class="form-group">
-                <textarea name="new_chapter_content"><?= $chapter->content() ?></textarea>
+                <textarea name="new_chapter_content" id="newchapter"><?= $chapter->content() ?></textarea>
             </div>
             <button type="submit" name="submit" class="btn btn-primary btn-block">Mettre à jour</button>
         </form>

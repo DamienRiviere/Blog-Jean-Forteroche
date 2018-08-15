@@ -114,6 +114,12 @@ body {
 
 /* DEBUT JUMBOTRON */
 
+#jean-forteroche {
+    height: 300px;
+    width: 250px;
+    margin-bottom: 30px;
+}
+
 .jumbotron {
     margin-bottom: 0px;
 }
@@ -214,6 +220,14 @@ footer {
 }
 
 /* FIN PAGE "BILLET SIMPLE POUR L'ALASKA" */
+
+/* Container de la page contact, inscription */
+.container-chapter {
+    margin-top: 57px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    height:100%;
+}
 
 /* Container de la page contact, inscription */
 .container-page {

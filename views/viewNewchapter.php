@@ -10,7 +10,7 @@
                 <input type="text" name="chapter_title" class="form-control" id="inputtitle">
             </div>
             <div class="form-group">
-                <textarea name="chapter_content"></textarea>
+                <textarea name="chapter_content" id="newchapter"></textarea>
             </div>
             <button type="submit" name="submit" class="btn btn-primary btn-block">Publier le chapitre</button>
         </form>
