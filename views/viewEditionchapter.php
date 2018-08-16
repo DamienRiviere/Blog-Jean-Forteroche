@@ -1,6 +1,6 @@
 <?php $this->_t = "Modifier ou supprimer un chapitre"; ?>
 
-<div class="container-page bg-light">
+<div class="container-editionchapter bg-light">
     <div class="container col-lg-8">
         <table class="table">
             <thead class="thead-light">
@@ -22,7 +22,7 @@
                     <td>
                         <div class="btn-group btn-group-sm" role="group">
                             <a href="editchapter&amp;id=<?= $chapter->id() ?>" class="btn btn-primary">Modifier</a>
-                            <a href="editionchapter&amp;deletechapter&amp;id=<?= $chapter->id() ?>" class="btn btn-danger">Supprimer</a>
+                            <a href="" class="btn btn-danger trash" data-toggle="modal" data-id="<?= $chapter->id() ?>" data-target="#modalDeleteChapter">Supprimer</a>
                         </div>
                     </td>
                 </tr>
@@ -31,13 +31,12 @@
         </table>
     </div>
 </div>
-
-<!-- Modal 
+ 
 <div class="modal fade" id="modalDeleteChapter" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Supression du <?= $chapter->title() ?></h5>
+                <h5 class="modal-title" id="exampleModalLabel">Supression du chapitre</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -46,12 +45,11 @@
                 Êtes-vous sûr de vouloir supprimer le chapitre ?   
             </div>
             <div class="modal-footer">
-                <a href="" class="btn btn-danger">Supprimer</a>
+                <a href="" id="modalDelete" class="btn btn-danger">Supprimer</a>
                 <a href="" class="btn btn-secondary" data-dismiss="modal">Annuler</a>
             </div>
         </div>
     </div>
 </div>
--->
 
 
