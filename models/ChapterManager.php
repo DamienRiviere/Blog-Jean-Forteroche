@@ -46,7 +46,7 @@ class ChapterManager extends Model {
      */
     public function getChapter($id)
     {
-        $req = $this->getDb()->prepare('SELECT id, title, content, author, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts WHERE id = ?');
+        $req = $this->getDb()->prepare('SELECT id, title, content, author, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr, DATE_FORMAT(modification_date, \'%d/%m/%Y à %Hh%imin%ss\') AS modification_date_fr FROM posts WHERE id = ?');
         $req->execute(array($id));
         $data = $req->fetch();
         return new Chapter($data);
@@ -96,7 +96,7 @@ class ChapterManager extends Model {
      */
     public function updateChapter($id, $title, $author, $content)
     {
-        $req = $this->getDb()->prepare('UPDATE posts SET title = :newtitle, author = :newauthor, content = :newcontent, creation_date = NOW() WHERE id =' . $id);
+        $req = $this->getDb()->prepare('UPDATE posts SET title = :newtitle, author = :newauthor, content = :newcontent, modification_date = NOW() WHERE id =' . $id);
         $updateChapter = $req->execute(array(
             'newtitle' => $title,
             'newauthor' => $author,

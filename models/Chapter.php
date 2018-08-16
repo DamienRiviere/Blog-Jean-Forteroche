@@ -7,6 +7,7 @@ class Chapter {
     private $_author;
     private $_content;
     private $_creation_date_fr;
+    private $_modification_date_fr;
 
     /**
      * Constructeur qui hydrate nos instances
@@ -90,13 +91,23 @@ class Chapter {
     }
 
     /**
-     * Setter Date
+     * Setter Date création
      *
-     * @param [type] $date
+     * @param [type] $dateCreation
      */
-    public function setCreation_Date_Fr($date)
+    public function setCreation_Date_Fr($dateCreation)
     {
-        $this->_creation_date_fr = $date;
+        $this->_creation_date_fr = $dateCreation;
+    }
+
+    /**
+     * Setter Date modification
+     *
+     * @param [type] $dateModification
+     */
+    public function setModification_Date_Fr($dateModification)
+    {
+        $this->_modification_date_fr = $dateModification;
     }
 
     /**
@@ -140,13 +151,23 @@ class Chapter {
     }
 
     /**
-     * Getter Date
+     * Getter Date création
      *
      * @return $this->_creation_date_fr;
      */
     public function date()
     {
         return $this->_creation_date_fr;
+    }
+
+    /**
+     * Getter Date modification
+     *
+     * @return $this->_modification_date_fr;
+     */
+    public function dateModification()
+    {
+        return $this->_modification_date_fr;
     }
 
 }
