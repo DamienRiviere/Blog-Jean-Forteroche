@@ -51,7 +51,7 @@ else
         <link rel="stylesheet" href="public/css/style.css"/>
         <!-- TinyMCE -->
         <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
-        <script>tinymce.init({ selector:'#newchapter', height : "350" });</script>
+        <script>tinymce.init({ selector:'#newchapter', height : "378" });</script>
    </head>
 
     <body>
@@ -122,6 +122,7 @@ else
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
         <script src="public/js/scroll.js"></script>
+        <script src="public/js/modal.js"></script>
     </body>
 
 </html>

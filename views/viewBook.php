@@ -1,6 +1,6 @@
 <?php $this->_t = "Billet simple pour l'Alaska"; ?>
 
-<div id="container" class="bg-light">
+<div class="container-page bg-light">
     <?php foreach($chapters as $chapter): ?>
     <div class="container style-container col-xl-7 col-lg-7 col-md-10">
         <div class="row style-row">
