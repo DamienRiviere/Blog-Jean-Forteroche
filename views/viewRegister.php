@@ -1,6 +1,6 @@
 <?php $this->_t = "Inscription"; ?>
 
-<div class="container-page bg-light">
+<div class="container-register bg-light">
 
     <div class="container">
         

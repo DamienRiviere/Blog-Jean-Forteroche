@@ -52,6 +52,7 @@ else
         <!-- TinyMCE -->
         <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
         <script>tinymce.init({ selector:'#newchapter', height : "378" });</script>
+        <script>tinymce.init({ selector:'#newcomment', height : "200" });</script>
    </head>
 
     <body>

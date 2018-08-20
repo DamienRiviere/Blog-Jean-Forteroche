@@ -1,6 +1,6 @@
 <?php $this->_t = "Edition du profil" ?>
 
-<div class="container-page bg-light">
+<div class="container-editprofile bg-light">
     <div class="container col-lg-3 style-container"> 
         <h2 class="style-contact-title text-center">Edition du profil :</h2>
         <form action="editprofile" method="POST" class="form-register">
