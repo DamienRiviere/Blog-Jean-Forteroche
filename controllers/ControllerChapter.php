@@ -7,6 +7,14 @@ class ControllerChapter {
     
     private $_chapterManager;
     private $_view;
+    private $_commentManager;
+
+    protected $id;
+    protected $id_post;
+    protected $author;
+    protected $comment;
+
+    public $error;
 
     /**
      * Constructeur ou l'on controle qu'il n'y est pas plusieurs paramètre dans l'URL 
@@ -21,10 +29,23 @@ class ControllerChapter {
         {
             echo "Error 404";
         }
-        else if(isset($_GET['id']))
+        else if(isset($_GET['url']) == 'chapter')
         {
-            $this->id = $_GET['id'];
-            $this->checkId($this->id);
+            if(isset($_POST['submit']))
+            {
+                $this->checkComment();
+            }
+            else if(isset($_GET['url']) == 'deletecomment' AND isset($_GET['id_post']))
+            {
+                $this->id = $_GET['id'];
+                $this->id_post = $_GET['id_post'];
+                $this->deleteComment($this->id, $this->id_post);
+            }
+            else
+            {
+                $this->id = $_GET['id'];
+                $this->checkId($this->id);
+            }
         }
     }
 
@@ -58,8 +79,55 @@ class ControllerChapter {
         $this->_chapterManager = new ChapterManager;
         $chapter = $this->_chapterManager->getChapter($id);
 
+        $this->_commentManager = new CommentManager;
+        $comments = $this->_commentManager->getComments($id);
+
         $this->_view = new View('Chapter');
-        $this->_view->generate(array('chapter' => $chapter));
+        $this->_view->generate(array(
+            'chapter' => $chapter,
+            'comments' => $comments
+        ));
+    }
+
+    /**
+     * Fonction ou on controle le commentaire et on l'envoie dans la base de données
+     *
+     */
+    private function checkComment()
+    {
+        if(!empty($_POST['comment']))
+        {
+            $this->author = $_SESSION['pseudo'];
+            $this->id = $_GET['id'];
+            $this->comment = htmlspecialchars($_POST['comment']);
+
+            $this->_chapterManager = new ChapterManager;
+            $chapter = $this->_chapterManager->getChapter($this->id);
+
+            $this->_commentManager = new CommentManager;
+            $this->_commentManager->insertComment($this->id, $chapter->title(), $this->author, $this->comment);
+            $this->chapter($this->id);
+        }
+    }
+
+    /**
+     * Fonction pour supprimer un commentaire
+     *
+     * @param [type] $id
+     * @param [type] $id_post
+     */
+    private function deleteComment($id, $id_post)
+    {
+        if($_SESSION['slug'] == "admin" AND $_SESSION['level'] == '2')
+        {
+            $this->_commentManager = new CommentManager;
+            $deleteComment = $this->_commentManager->deleteComment($id_post);
+            header('Location: chapter&id=' . $id);
+        }
+        else
+        {
+            throw New Exception('Suppression du commentaire impossible !');
+        }
     }
 
 }

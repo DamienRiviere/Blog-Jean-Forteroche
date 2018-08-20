@@ -17,4 +17,43 @@
         }
         ?>
     </div>
+
+    <div class="container">
+        <?php
+
+        $content;
+
+            if(!empty($_SESSION))
+            {
+                echo $content = 
+                "<h2 class=\"mt-4 mb-4\">Poster un commentaire :</h2>
+                <form action=\"\" method=\"POST\" class=\"form-register\">
+                    <textarea name=\"comment\" id=\"newcomment\"></textarea>
+                    <button type=\"submit\" name=\"submit\" class=\"btn btn-primary btn-block mt-3\">Envoyer le commentaire</button>
+                </form>";
+            }
+            else
+            {
+                echo  $content = "<p class=\"text-center\"><a href=\"authentication\">Connectez-vous</a> ou <a href=\"register\">inscrivez-vous</a> pour ajouter un commentaire.</p>";
+            }
+        ?>
+        <h2 class="mt-4">Commentaires :</h2>
+
+        <?php foreach($comments as $comment) : ?>
+        <div class="container style-comment">
+            <?php
+                if($_SESSION['slug'] == 'admin' AND $_SESSION['level'] == '2')
+                {
+                    echo "<p class=\"text-primary\">" . $comment->author() . ' le ' .  $comment->dateComment() . "<a class=\"float-right\" href=\"chapter&id=" . $chapter->id() . "&deletechapter&id_post=" . $comment->id() . "\">Supprimer</a></p>";
+                }
+                else
+                {
+                    echo "<p class=\"text-primary\">" . $comment->author() . ' le ' .  $comment->dateComment() . "</p>";
+                }
+            ?>
+            <p><?= html_entity_decode($comment->comment()) ?></p>
+        </div>
+        <?php endforeach; ?>
+
+    </div>
 </div>
