@@ -32,7 +32,7 @@ class CommentManager extends Model {
     public function getComments($id)
     {
         $var = [];
-        $req = $this->getDb()->prepare('SELECT id, id_post, author, comment, DATE_FORMAT(date_comment, \'%d/%m/%Y à %Hh%imin%ss\') AS date_comment_fr FROM comments WHERE id_post = ? ORDER BY date_comment');
+        $req = $this->getDb()->prepare('SELECT id, id_post, author, comment, DATE_FORMAT(date_comment, \'%d/%m/%Y à %Hh%imin%ss\') AS date_comment_fr, check_comment FROM comments WHERE id_post = ? ORDER BY date_comment');
         $req->execute(array($id));
         while($data = $req->fetch(PDO::FETCH_ASSOC))
         {
@@ -50,7 +50,7 @@ class CommentManager extends Model {
      */
     public function getComment($id)
     {
-        $req = $this->getDb()->prepare('SELECT id, id_post, author, comment, DATE_FORMAT(date_comment, \'%d/%m/%Y à %Hh%imin%ss\') AS date_comment_fr FROM comments WHERE id = ?');
+        $req = $this->getDb()->prepare('SELECT id, id_post, author, comment, DATE_FORMAT(date_comment, \'%d/%m/%Y à %Hh%imin%ss\') AS date_comment_fr, check_comment FROM comments WHERE id = ?');
         $req->execute(array($id));
         $data = $req->fetch();
         return new Comment($data);
@@ -68,6 +68,35 @@ class CommentManager extends Model {
         $req = $this->getDb()->prepare('DELETE FROM comments WHERE id = ?');
         $deleteComment = $req->execute(array($id));
         return $deleteComment;
+    }
+
+    /**
+     * Fonction pour mettre à jour un commentaire
+     *
+     * @param [type] $id
+     * @param [type] $comment
+     * @return $updateComment;
+     */
+    public function updateComment($id, $comment)
+    {
+        $req = $this->getDb()->prepare('UPDATE comments SET comment = :newcomment, date_modification = NOW() WHERE id =' . $id);
+        $updateComment = $req->execute(array(
+            'newcomment' => $comment
+        ));
+        return $updateComment;
+    }
+
+    /**
+     * Fonction pour approuver un commentaire
+     *
+     * @param [type] $id
+     * @return $confirmeComment;
+     */
+    public function confirmeComment($id)
+    {
+        $req = $this->getDb()->prepare('UPDATE comments SET check_comment = 1 WHERE id = ?');
+        $confirmeComment = $req->execute(array($id));
+        return $confirmeComment;
     }
 
 }

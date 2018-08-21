@@ -35,12 +35,6 @@ class ControllerChapter {
             {
                 $this->checkComment();
             }
-            else if(isset($_GET['url']) == 'deletecomment' AND isset($_GET['id_post']))
-            {
-                $this->id = $_GET['id'];
-                $this->id_post = $_GET['id_post'];
-                $this->deleteComment($this->id, $this->id_post);
-            }
             else
             {
                 $this->id = $_GET['id'];
@@ -107,26 +101,6 @@ class ControllerChapter {
             $this->_commentManager = new CommentManager;
             $this->_commentManager->insertComment($this->id, $chapter->title(), $this->author, $this->comment);
             $this->chapter($this->id);
-        }
-    }
-
-    /**
-     * Fonction pour supprimer un commentaire
-     *
-     * @param [type] $id
-     * @param [type] $id_post
-     */
-    private function deleteComment($id, $id_post)
-    {
-        if($_SESSION['slug'] == "admin" AND $_SESSION['level'] == '2')
-        {
-            $this->_commentManager = new CommentManager;
-            $deleteComment = $this->_commentManager->deleteComment($id_post);
-            header('Location: chapter&id=' . $id);
-        }
-        else
-        {
-            throw New Exception('Suppression du commentaire impossible !');
         }
     }
 

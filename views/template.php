@@ -10,8 +10,7 @@ if(!empty($_SESSION) AND $_SESSION['slug'] == 'admin')
                 <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"dropdownMenuLink\">
                     <a class=\"dropdown-item\" href=\"profile&id=" . $_SESSION['id'] . "\">PROFIL</a>
                     <div class=\"dropdown-divider\"></div>
-                    <a class=\"dropdown-item\" href=\"newchapter\">PUBLIER UN CHAPITRE</a>
-                    <a class=\"dropdown-item\" href=\"editionchapter\">MODIFIER/SUPPRIMER UN CHAPITRE</a>
+                    <a class=\"dropdown-item\" href=\"editionchapter\">ADMINISTRATION</a>
                     <div class=\"dropdown-divider\"></div>
                     <a class=\"dropdown-item\" href=\"disconnection\">DECONNEXION</a>
                 </div>

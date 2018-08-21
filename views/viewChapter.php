@@ -39,21 +39,17 @@
         ?>
         <h2 class="mt-4">Commentaires :</h2>
 
-        <?php foreach($comments as $comment) : ?>
-        <div class="container style-comment">
+        <?php foreach($comments as $comment) : ?>    
             <?php
-                if($_SESSION['slug'] == 'admin' AND $_SESSION['level'] == '2')
+                if($comment->checkComment() == 1)
                 {
-                    echo "<p class=\"text-primary\">" . $comment->author() . ' le ' .  $comment->dateComment() . "<a class=\"float-right\" href=\"chapter&id=" . $chapter->id() . "&deletechapter&id_post=" . $comment->id() . "\">Supprimer</a></p>";
-                }
-                else
-                {
-                    echo "<p class=\"text-primary\">" . $comment->author() . ' le ' .  $comment->dateComment() . "</p>";
+                    echo "<div class=\"container style-comment\">";
+                    echo "<p class=\"text-primary\"><span class=\"font-weight-bold\">" . $comment->author() . '</span> le ' .  $comment->dateComment() . "</p>";
+                    echo "<p>" . html_entity_decode($comment->comment()) . "</p>";
+                    echo "</div>";    
                 }
             ?>
-            <p><?= html_entity_decode($comment->comment()) ?></p>
-        </div>
         <?php endforeach; ?>
-
+        
     </div>
 </div>

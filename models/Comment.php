@@ -7,6 +7,7 @@ class Comment {
     private $_author;
     private $_comment;
     private $_date_comment_fr;
+    private $_check_comment;
 
     /**
      * Constructeur qui hydrate nos instances
@@ -102,6 +103,16 @@ class Comment {
     }
 
     /**
+     * Setter Check Comment
+     *
+     * @param [type] $checkComment
+     */
+    public function setCheck_Comment($checkComment)
+    {
+        $this->_check_comment = $checkComment;
+    }
+
+    /**
      * Getter Id
      *
      * @return $this->_id;
@@ -149,5 +160,15 @@ class Comment {
     public function dateComment()
     {
         return $this->_date_comment_fr;
+    }
+
+    /**
+     * Getter Check comment
+     *
+     * @return $this->_check_comment;
+     */
+    public function checkComment()
+    {
+        return $this->_check_comment;
     }
 }

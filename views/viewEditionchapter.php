@@ -5,7 +5,6 @@
         <table class="table">
             <thead class="thead-light">
                 <tr>
-                    <th scope="col">Id</th>
                     <th scope="col">Titre</th>
                     <th scope="col">Auteur</th>
                     <th scope="col">Date de création</th>
@@ -15,7 +14,6 @@
             <tbody>
                 <?php foreach($chapters as $chapter): ?>
                 <tr>
-                    <th scope="row"><?= $chapter->id() ?></th>
                     <td><?= $chapter->title() ?></td>
                     <td><?= $chapter->author() ?></td>
                     <td><?= $chapter->date() ?></td>
@@ -23,12 +21,14 @@
                         <div class="btn-group btn-group-sm" role="group">
                             <a href="editchapter&amp;id=<?= $chapter->id() ?>" class="btn btn-primary">Modifier</a>
                             <a href="" class="btn btn-danger trash" data-toggle="modal" data-id="<?= $chapter->id() ?>" data-target="#modalDeleteChapter">Supprimer</a>
+                            <a href="comment&amp;id=<?= $chapter->id() ?>" class="btn btn-success">Commentaire</a>
                         </div>
                     </td>
                 </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
+        <a class="btn btn-primary btn-block" href="newchapter">PUBLIER UN CHAPITRE</a>
     </div>
 </div>
  
