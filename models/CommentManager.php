@@ -32,7 +32,7 @@ class CommentManager extends Model {
     public function getComments($id)
     {
         $var = [];
-        $req = $this->getDb()->prepare('SELECT id, id_post, author, comment, DATE_FORMAT(date_comment, \'%d/%m/%Y à %Hh%imin%ss\') AS date_comment_fr, check_comment FROM comments WHERE id_post = ? ORDER BY date_comment');
+        $req = $this->getDb()->prepare('SELECT id, id_post, author, comment, DATE_FORMAT(date_comment, \'%d/%m/%Y à %Hh%imin%ss\') AS date_comment_fr, DATE_FORMAT(date_modification, \'%d/%m/%Y à %Hh%imin%ss\') AS date_modification_fr, check_comment FROM comments WHERE id_post = ? ORDER BY date_comment');
         $req->execute(array($id));
         while($data = $req->fetch(PDO::FETCH_ASSOC))
         {

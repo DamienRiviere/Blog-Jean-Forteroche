@@ -7,6 +7,7 @@ class Comment {
     private $_author;
     private $_comment;
     private $_date_comment_fr;
+    private $_date_modification_fr;
     private $_check_comment;
 
     /**
@@ -103,6 +104,16 @@ class Comment {
     }
 
     /**
+     * Setter Date Modification
+     *
+     * @param [type] $dateModification
+     */
+    public function setDate_Modification_Fr($dateModification)
+    {
+        $this->_date_modification_fr = $dateModification;
+    }
+
+    /**
      * Setter Check Comment
      *
      * @param [type] $checkComment
@@ -160,6 +171,16 @@ class Comment {
     public function dateComment()
     {
         return $this->_date_comment_fr;
+    }
+
+    /**
+     * Getter Date Modification
+     *
+     * @return $this->_date_modification;
+     */
+    public function dateModification()
+    {
+        return $this->_date_modification_fr;
     }
 
     /**

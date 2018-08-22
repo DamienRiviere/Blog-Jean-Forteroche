@@ -16,8 +16,8 @@
                 echo "<p class=\"text-primary\"><span class=\"font-weight-bold\">" . $comment->author() . "</span> le " . $comment->dateComment() . "</p>";
                 echo "<p>" . html_entity_decode($comment->comment()) . "</p>";
                 echo "</div>";   
-                echo "<a class=\"btn btn-danger text-white float-right ml-2\" href=\"comment&id=" . $chapter->id() . "&deletechapter&id_post=" . $comment->id() . "\">Supprimer</a>";  
-                echo "<a class=\"btn btn-success text-white float-right\" href=\"comment&id=" . $chapter->id() . "&confirmecomment&id_post=" . $comment->id() . "\">Approuver</a>";
+                echo "<a class=\"btn btn-danger text-white float-right ml-2\" data-toggle=\"modal\" data-id=\"\" data-target=\"#modalDeleteComment\" href=\"\">Supprimer</a>";   
+                echo "<a class=\"btn btn-success text-white float-right\" href=\"confirmecomment&id_post=" . $comment->id() . "&id=" . $chapter->id() . "\">Approuver</a>";
                 echo "<br>";                
                 echo "<br>"; 
                 echo "<div class=\"dropdown-divider\"></div>";
@@ -28,7 +28,7 @@
                 echo "<p class=\"text-primary\"><span class=\"font-weight-bold\">" . $comment->author() . "</span> le " . $comment->dateComment() . "</p>";
                 echo "<p>" . html_entity_decode($comment->comment()) . "</p>";
                 echo "</div>";   
-                echo "<a class=\"btn btn-danger text-white float-right ml-2\" href=\"comment&id=" . $chapter->id() . "&deletechapter&id_post=" . $comment->id() . "\">Supprimer</a>";
+                echo "<a class=\"btn btn-danger text-white float-right ml-2 trash2\" data-toggle=\"modal\" data-id=\"" . $chapter->id() . "\" data-idpost=\"" . $comment->id() . "\" data-target=\"#modalDeleteComment\" href=\"\">Supprimer</a>";
                 echo "<br>";                
                 echo "<br>"; 
                 echo "<div class=\"dropdown-divider\"></div>";  
@@ -37,4 +37,25 @@
         <?php endforeach; ?>
     </div>
 
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalDeleteComment" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Supression du commentaire</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Êtes-vous sûr de vouloir supprimer le commentaire ?   
+            </div>
+            <div class="modal-footer">
+                <a href="" id="modalDeleteC" class="btn btn-danger">Supprimer</a>
+                <a href="" class="btn btn-secondary" data-dismiss="modal">Annuler</a>
+            </div>
+        </div>
+    </div>
 </div>

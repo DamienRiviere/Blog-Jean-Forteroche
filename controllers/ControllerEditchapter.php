@@ -46,7 +46,7 @@ class ControllerEditchapter {
             }
             else
             {
-                    $this->editChapter($_GET['id']);
+                $this->editChapter($_GET['id']);
             }
         }
         else

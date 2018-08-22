@@ -251,11 +251,20 @@ footer {
     margin-top: 57px;
     padding-top: 25px;
     padding-bottom: 25px;
-    height: 88.6vh;
+    height: 100%;
 }
 
 /* Container page inscription */
 .container-register {
+    margin-top: 57px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    height: 88.6vh;
+}
+
+/* Container page edit comment */
+.container-editcomment
+{
     margin-top: 57px;
     padding-top: 25px;
     padding-bottom: 25px;

@@ -44,8 +44,19 @@
                 if($comment->checkComment() == 1)
                 {
                     echo "<div class=\"container style-comment\">";
-                    echo "<p class=\"text-primary\"><span class=\"font-weight-bold\">" . $comment->author() . '</span> le ' .  $comment->dateComment() . "</p>";
+                    if(isset($_SESSION['pseudo']) AND $_SESSION['pseudo'] == $comment->author())
+                    {
+                        echo "<p class=\"text-primary\"><span class=\"font-weight-bold\">" . $comment->author() . '</span> le ' .  $comment->dateComment() . "<a class=\"float-right\" href=\"editcomment&id_post=" . $comment->id() . "&id=" . $chapter->id() . "\">Modifier</a></p>";
+                    }
+                    else
+                    {
+                        echo "<p class=\"text-primary\"><span class=\"font-weight-bold\">" . $comment->author() . '</span> le ' .  $comment->dateComment() . "</p>";
+                    }
                     echo "<p>" . html_entity_decode($comment->comment()) . "</p>";
+                    if($comment->dateModification() !== null)
+                    {
+                        echo "<p class=\"date-author text-primary\">Modifié par " . $comment->author() . " le " . $comment->dateModification() . "</p>";
+                    }
                     echo "</div>";    
                 }
             ?>
