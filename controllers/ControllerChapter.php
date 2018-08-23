@@ -79,7 +79,8 @@ class ControllerChapter {
         $this->_view = new View('Chapter');
         $this->_view->generate(array(
             'chapter' => $chapter,
-            'comments' => $comments
+            'comments' => $comments,
+            'error' => $this->error
         ));
     }
 
@@ -100,6 +101,12 @@ class ControllerChapter {
 
             $this->_commentManager = new CommentManager;
             $this->_commentManager->insertComment($this->id, $chapter->title(), $this->author, $this->comment);
+            $this->chapter($this->id);
+        }
+        else
+        {
+            $this->error = "Veuillez écrire un commentaire !";
+            $this->id = $_GET['id'];
             $this->chapter($this->id);
         }
     }

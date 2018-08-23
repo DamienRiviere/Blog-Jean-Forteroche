@@ -37,6 +37,7 @@
                 echo  $content = "<p class=\"text-center\"><a href=\"authentication\">Connectez-vous</a> ou <a href=\"register\">inscrivez-vous</a> pour ajouter un commentaire.</p>";
             }
         ?>
+        <p class="text-center text-danger font-weight-bold style-register-error"><?php if(isset($error)) { echo $error; }?></p>
         <h2 class="mt-4">Commentaires :</h2>
 
         <?php foreach($comments as $comment) : ?>    
