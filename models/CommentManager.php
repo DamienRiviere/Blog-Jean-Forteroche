@@ -99,4 +99,32 @@ class CommentManager extends Model {
         return $confirmeComment;
     }
 
+    /**
+     * Fonction pour annuler un commentaire
+     *
+     * @param [type] $id
+     * @return $cancelComment;
+     */
+    public function cancelComment($id)
+    {
+        $req = $this->getDb()->prepare('UPDATE comments SET check_comment = 0 WHERE id = ?');
+        $cancelComment = $req->execute(array($id));
+        return $cancelComment;
+    }
+
+    /**
+     * Fonction pour vérifier qu'un id corresponde bien à un commentaire
+     *
+     * @param [type] $id
+     * @return $checkCommentId;
+     */
+    public function checkCommentId($id)
+    {
+        $req = $this->getDb()->prepare('SELECT * FROM comments WHERE id = ?');
+        $req->execute(array($id));
+        $checkCommentId = $req->rowCount();
+        return $checkCommentId;
+        $req->closeCursor();
+    }
+
 }

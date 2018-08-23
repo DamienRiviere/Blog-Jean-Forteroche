@@ -3,7 +3,7 @@ session_start();
 
 require_once('views/View.php');
 
-class ControllerConfirmecomment {
+class ControllerCancelcomment {
 
     private $_commentManager;
     private $_view;
@@ -17,11 +17,11 @@ class ControllerConfirmecomment {
         {
             echo "Error 404";
         }
-        else if(isset($_GET['url']) == 'confirmecomment' AND isset($_GET['id_post']) AND !empty($_SESSION) AND $_SESSION['slug'] == 'admin' AND $_SESSION['level'] == '2')
+        else if(isset($_GET['url']) == 'cancelcomment' AND isset($_GET['id_post']) AND !empty($_SESSION) AND $_SESSION['slug'] == 'admin' AND $_SESSION['level'] == '2')
         {
             $this->id = $_GET['id'];
             $this->id_post = $_GET['id_post'];
-            $this->confirmeComment($this->id, $this->id_post);
+            $this->cancelComment($this->id, $this->id_post);
         }
         else
         {
@@ -30,22 +30,22 @@ class ControllerConfirmecomment {
     }
 
     /**
-     * Fonction pour approuver un commentaire
+     * Fonction pour annuler un commentaire
      *
      * @param [type] $id
      * @param [type] $id_post
      */
-    private function confirmeComment($id, $id_post)
+    private function cancelComment($id, $id_post)
     {
         if(!empty($_SESSION) AND $_SESSION['slug'] == 'admin' AND $_SESSION['level'] == '2')
         {
             $this->_commentManager = new CommentManager;
-            $this->_commentManager->confirmeComment($id_post);
+            $this->_commentManager->cancelComment($id_post);
             header('Location: comment&id=' . $id);
         }
         else
         {
-            throw New Exception('Impossible d\'approuver le commentaire !');
+            throw New Exception('Impossible d\'annuler le commentaire !');
         }  
     }
 

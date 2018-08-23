@@ -11,7 +11,6 @@ $('.trash2').click(function(){
     // Récupération de l'id
     var idPost=$(this).data('idpost');
     var id=$(this).data('id');
-
     // Ajout du href avec l'id
     $('#modalDeleteC').attr('href','deletecomment&id_post='+idPost+'&id='+id,);
 })
