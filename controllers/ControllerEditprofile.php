@@ -57,7 +57,7 @@ class ControllerEditprofile {
         }
         else
         {
-            throw new Exception('<p>Profil introuvable</p>');
+            throw new Exception('Profil introuvable');
         }
     }
 

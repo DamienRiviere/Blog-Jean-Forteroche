@@ -106,7 +106,7 @@ class ChapterManager extends Model {
     }
 
     /**
-     * Fonction pour vérifier qu'un id correponde bien à un chapitre
+     * Fonction pour vérifier qu'un id corresponde bien à un chapitre
      *
      * @param [type] $id
      * @return $checkChapterId;
