@@ -56,6 +56,12 @@ class ProfileManager extends Model {
         $req->closeCursor();
     }
 
+    /**
+     * Fonction qui récupère les membres et leurs rôles
+     *
+     * @param [type] $id
+     * @return $data;
+     */
     public function getProfileAndRole($id)
     {
         $req = $this->getDb()->prepare('SELECT * FROM members INNER JOIN roles ON members.role_id = roles.id');

@@ -1,7 +1,36 @@
 <?php $this->_t = "Modifier ou supprimer un chapitre"; ?>
 
 <div class="container-editionchapter bg-light">
-    <div class="container col-lg-6">
+    <div class="container col-lg-8">
+    <h2 class="text-center mt-5 mb-5">Liste des commentaires signalés :</h2>
+        <table class="table table-responsive-sm">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">Chapitre</th>
+                    <th scope="col">Auteur</th>
+                    <th scope="col">Message</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach($signalsComments as $signalComment): ?>
+                <tr>
+                    <td><?= $signalComment->titlePost() ?></td>
+                    <td><?= $signalComment->author() ?></td>
+                    <td><?= html_entity_decode($signalComment->comment()) ?></td>          
+                </tr>
+                <tr>
+                    <td class="col-span-3">
+                        <div class="btn-group btn-group-sm" role="group">
+                            <a class="btn btn-primary btn-sm" href="comment&amp;id=<?=$signalComment->idPost() ?>">Voir commentaire</a>
+                        </div>
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+        <h2 class="text-center mt-5 mb-5">Liste des chapitres :</h2>
         <table class="table table-responsive-sm">
             <thead class="thead-light">
                 <tr>
@@ -55,5 +84,7 @@
         </div>
     </div>
 </div>
+
+
 
 

@@ -4,6 +4,7 @@ class Comment {
 
     private $_id;
     private $_id_post;
+    private $_title_post;
     private $_author;
     private $_comment;
     private $_date_comment_fr;
@@ -64,6 +65,19 @@ class Comment {
         if($id_post > 0)
         {
             $this->_id_post = $id_post;
+        }
+    }
+
+    /**
+     * Setter Title Post
+     *
+     * @param [type] $title_post
+     */
+    public function setTitle_Post($title_post)
+    {
+        if(is_string($title_post))
+        {
+            $this->_title_post = $title_post;
         }
     }
 
@@ -141,6 +155,16 @@ class Comment {
     public function idPost()
     {
         return $this->_id_post;
+    }
+
+    /**
+     * Getter Title Post
+     *
+     * @return $this->_title_post;
+     */
+    public function titlePost()
+    {
+        return $this->_title_post;
     }
     
     /**

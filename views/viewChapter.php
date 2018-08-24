@@ -42,26 +42,54 @@
 
         <?php foreach($comments as $comment) : ?>    
             <?php
-                if($comment->checkComment() == 1)
+                if($comment->checkComment() == 1 OR $comment->checkComment() == 2 )
                 {
                     echo "<div class=\"container style-comment\">";
-                    if(isset($_SESSION['pseudo']) AND $_SESSION['pseudo'] == $comment->author())
-                    {
-                        echo "<p class=\"text-primary\"><span class=\"font-weight-bold\">" . $comment->author() . '</span> le ' .  $comment->dateComment() . "<a class=\"float-right\" href=\"editcomment&id_post=" . $comment->id() . "&id=" . $chapter->id() . "\">Modifier</a></p>";
-                    }
-                    else
-                    {
-                        echo "<p class=\"text-primary\"><span class=\"font-weight-bold\">" . $comment->author() . '</span> le ' .  $comment->dateComment() . "</p>";
-                    }
-                    echo "<p>" . html_entity_decode($comment->comment()) . "</p>";
-                    if($comment->dateModification() !== null)
-                    {
-                        echo "<p class=\"date-author text-primary\">Modifié par " . $comment->author() . " le " . $comment->dateModification() . "</p>";
-                    }
+                        if(isset($_SESSION['pseudo']) AND $_SESSION['pseudo'] == $comment->author())
+                        {
+                            echo "<p class=\"text-primary\"><span class=\"font-weight-bold\">" . $comment->author() . '</span> le ' .  $comment->dateComment() . "<a class=\"float-right\" href=\"editcomment&id_post=" . $comment->id() . "&id=" . $chapter->id() . "\">Modifier</a></p>";
+                        }
+                        else
+                        {
+                            echo "<p class=\"text-primary\"><span class=\"font-weight-bold\">" . $comment->author() . '</span> le ' .  $comment->dateComment() . "</p>";
+                        }
+                        echo "<p>" . html_entity_decode($comment->comment()) . "</p>";
+                        echo "<div class=\"dropdown-divider\"></div>";
+                        echo "<div class=\"comment-flex\">";
+                            if($comment->dateModification() !== null)
+                            {
+                                echo "<p class=\"date-author text-primary paragraphe-comment\">Modifié par " . $comment->author() . " le " . $comment->dateModification() . "</p>";
+                            }
+                            if(!empty($_SESSION) AND $_SESSION['pseudo'] !== $comment->author() AND $comment->checkComment() == 1)
+                            {
+                                echo "<p class=\"paragraphe-comment\"><a class=\"text-danger trash3\" href=\"\" data-toggle=\"modal\" data-id=\"" . $chapter->id() . "\" data-idpost=\"" . $comment->id() . "\" data-target=\"#modalSignalComment\">Signaler le commentaire</a></p>";
+                            }
+                        echo "</div>";
                     echo "</div>";    
                 }
             ?>
         <?php endforeach; ?>
         
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalSignalComment" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Signaler le commentaire</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Êtes-vous sûr de vouloir signaler le commentaire ?   
+            </div>
+            <div class="modal-footer">
+                <a href="" id="modalSignalC" class="btn btn-danger">Signaler</a>
+                <a href="" class="btn btn-secondary" data-dismiss="modal">Annuler</a>
+            </div>
+        </div>
     </div>
 </div>

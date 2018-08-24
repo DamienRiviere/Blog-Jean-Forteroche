@@ -43,6 +43,25 @@ class CommentManager extends Model {
     }
 
     /**
+     * Fonction pour récupérer les commentaires signalés
+     *
+     * @param [type] $id
+     * @return $var;
+     */
+    public function getSignalComment()
+    {
+        $var = [];
+        $req = $this->getDb()->prepare('SELECT id, id_post, title_post, author, comment, DATE_FORMAT(date_comment, \'%d/%m/%Y à %Hh%imin%ss\') AS date_comment_fr, DATE_FORMAT(date_modification, \'%d/%m/%Y à %Hh%imin%ss\') AS date_modification_fr, check_comment FROM comments WHERE check_comment = 2 ORDER BY date_comment');
+        $req->execute(array());
+        while($data = $req->fetch(PDO::FETCH_ASSOC))
+        {
+            $var[] = new Comment($data);
+        }
+        return $var;
+        $req->closeCursor();
+    }
+
+    /**
      * Fonction pour récupérer un commentaire via son id
      *
      * @param [type] $id
@@ -110,6 +129,19 @@ class CommentManager extends Model {
         $req = $this->getDb()->prepare('UPDATE comments SET check_comment = 0 WHERE id = ?');
         $cancelComment = $req->execute(array($id));
         return $cancelComment;
+    }
+
+    /**
+     * Function pour signaler un commentaire
+     *
+     * @param [type] $id
+     * @return $signalComment;
+     */
+    public function signalComment($id)
+    {
+        $req = $this->getDb()->prepare('UPDATE comments SET check_comment = 2 WHERE id = ?');
+        $signalComment = $req->execute(array($id));
+        return $signalComment;
     }
 
     /**

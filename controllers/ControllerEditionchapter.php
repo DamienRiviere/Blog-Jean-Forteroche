@@ -7,6 +7,7 @@ class ControllerEditionchapter {
 
     private $_view;
     private $_chapterManager;
+    private $_commentManager;
 
     protected $id;
 
@@ -46,7 +47,7 @@ class ControllerEditionchapter {
     }
 
     /**
-     * Fonction qui génère la vue et affiche les données des chapitres
+     * Fonction qui génère la vue et affiche les données des chapitres et les commentaires signalés
      *
      */
     private function editionChapter()
@@ -54,8 +55,14 @@ class ControllerEditionchapter {
         $this->_chapterManager = new ChapterManager;
         $chapters = $this->_chapterManager->getChapters();
 
+        $this->_commentManager = new CommentManager;
+        $signalsComments = $this->_commentManager->getSignalComment();
+
         $this->_view = new View('Editionchapter');
-        $this->_view->generate(array("chapters" => $chapters));
+        $this->_view->generate(array(
+            "chapters" => $chapters,
+            "signalsComments" => $signalsComments
+        ));
     }
 
     /**

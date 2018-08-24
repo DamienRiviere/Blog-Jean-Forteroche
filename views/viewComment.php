@@ -18,6 +18,7 @@
                 echo "</div>";   
                 echo "<a class=\"btn btn-danger text-white float-right ml-2 trash2\" data-toggle=\"modal\" data-id=\"" . $chapter->id() . "\" data-idpost=\"" . $comment->id() . "\" data-target=\"#modalDeleteComment\" href=\"\">Supprimer</a>";   
                 echo "<a class=\"btn btn-success text-white float-right\" href=\"confirmecomment&id_post=" . $comment->id() . "&id=" . $chapter->id() . "\">Approuver</a>";
+                echo "<p class=\"text-secondary\">Ce commentaire n'est pas approuvé donc il n'est pas affiché sur le chapitre.</p>";
                 echo "<br>";                
                 echo "<br>"; 
                 echo "<div class=\"dropdown-divider\"></div>";
@@ -30,6 +31,23 @@
                 echo "</div>";   
                 echo "<a class=\"btn btn-danger text-white float-right ml-2 trash2\" data-toggle=\"modal\" data-id=\"" . $chapter->id() . "\" data-idpost=\"" . $comment->id() . "\" data-target=\"#modalDeleteComment\" href=\"\">Supprimer</a>";
                 echo "<a class=\"btn btn-secondary text-white float-right\" href=\"cancelcomment&id_post=" . $comment->id() . "&id=" . $chapter->id() . "\">Annuler</a>";
+                echo "<br>";                
+                echo "<br>"; 
+                echo "<div class=\"dropdown-divider\"></div>";  
+            }
+            else if($comment->checkComment() == 2)
+            {
+                echo "<div class=\"container style-comment\">";
+                echo "<p class=\"text-primary\"><span class=\"font-weight-bold\">" . $comment->author() . "</span> le " . $comment->dateComment() . "</p>";
+                echo "<p>" . html_entity_decode($comment->comment()) . "</p>";
+                if($comment->checkComment() == 2)
+                {
+                    echo "<p class=\"text-danger font-weight-bold\">Ce commentaire a été signaler !</p>";
+                }
+                echo "</div>";   
+                echo "<a class=\"btn btn-danger text-white float-right ml-2 trash2\" data-toggle=\"modal\" data-id=\"" . $chapter->id() . "\" data-idpost=\"" . $comment->id() . "\" data-target=\"#modalDeleteComment\" href=\"\">Supprimer</a>";
+                echo "<a class=\"btn btn-secondary text-white float-right\" href=\"cancelcomment&id_post=" . $comment->id() . "&id=" . $chapter->id() . "\">Annuler</a>";
+                echo "<a class=\"btn btn-success text-white float-right mr-2\" href=\"confirmecomment&id_post=" . $comment->id() . "&id=" . $chapter->id() . "\">Approuver</a>";
                 echo "<br>";                
                 echo "<br>"; 
                 echo "<div class=\"dropdown-divider\"></div>";  
