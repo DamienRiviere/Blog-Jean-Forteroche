@@ -12,6 +12,12 @@ class ControllerDeletecomment {
     protected $id;
     protected $id_post;
 
+    /**
+     * Constructeur ou l'on récupère l'url
+     * et ou on lance les actions
+     *
+     * @param [type] $url
+     */
     public function __construct($url)
     {
         if(isset($url) && count($url) > 1)

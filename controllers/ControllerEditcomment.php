@@ -16,6 +16,12 @@ class ControllerEditcomment {
     public $error;
     public $msg;
 
+    /**
+     * Constructeur ou l'on récupère l'url
+     * et ou on lance les actions
+     *
+     * @param [type] $url
+     */
     public function __construct($url)
     {
         if(isset($url) && count($url) > 1)
@@ -61,6 +67,11 @@ class ControllerEditcomment {
         }
     }
 
+    /**
+     * Fonction ou l'on vérifie que le commentaire existe via son Id
+     *
+     * @param [type] $id_post
+     */
     private function checkCommentId($id_post)
     {
         $this->_commentManager = new CommentManager;

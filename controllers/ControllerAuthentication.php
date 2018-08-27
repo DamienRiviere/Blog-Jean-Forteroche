@@ -14,9 +14,8 @@ class ControllerAuthentication {
     public $error;
 
     /**
-     * Constructeur ou l'on controle qu'il n'y est pas plusieurs paramètre dans l'URL 
-     * et on affiche une exception si c'est le cas
-     * sinon on lance la fonction authentication
+     * Constructeur ou l'on récupère l'url
+     * et ou on lance les actions
      *
      * @param [type] $url
      */
@@ -68,7 +67,6 @@ class ControllerAuthentication {
         }
 
         $this->authentication();
-
     }
 
     /**
@@ -93,6 +91,7 @@ class ControllerAuthentication {
 
     /**
      * Fonction qui vérifie le mot de passe associé à l'adresse mail entrée dans le champ
+     * et récupération des informations de l'utilisateur dans des variables de sessions
      *
      * @param [type] $checkPass
      * @param [type] $checkUser

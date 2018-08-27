@@ -5,7 +5,7 @@
     <div class="container col-lg-8 style-link">
         <a href="chapter&amp;id=<?= $chapter->id() ?>">Retour sur le <?= $chapter->title() ?></a>
     </div>
-
+    <!-- Modification d'un commentaire -->
     <div class="container col-lg-8 style-container">
         <h2 class="text-center">Modifier le commentaire de <?= $comment->author() ?> :</h2>
         <form action="" method="POST" class="form-register">

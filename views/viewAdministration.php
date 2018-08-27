@@ -1,7 +1,9 @@
 <?php $this->_t = "Modifier ou supprimer un chapitre"; ?>
 
+<!-- Page d'administration du site -->
 <div class="container-editionchapter bg-light">
     <div class="container col-lg-8">
+    <!-- Affichage des commentaires signalés -->
     <h2 class="text-center mt-5 mb-5">Liste des commentaires signalés :</h2>
         <table class="table table-responsive-sm">
             <thead class="thead-light">
@@ -30,6 +32,7 @@
                 <?php endforeach; ?>
             </tbody>
         </table>
+        <!-- Affichage des chapitres -->
         <h2 class="text-center mt-5 mb-5">Liste des chapitres :</h2>
         <table class="table table-responsive-sm">
             <thead class="thead-light">
@@ -47,6 +50,7 @@
                     <td><?= $chapter->date() ?></td>
                 </tr>
                 <tr>
+                <!-- Options des chapitres -->
                     <td class="col-span-3">
                         <div class="btn-group btn-group-sm" role="group">
                             <a href="editchapter&amp;id=<?= $chapter->id() ?>" class="btn btn-sm btn-primary">Modifier</a>
@@ -64,7 +68,7 @@
     </div>
 </div>
  
-<!-- Modal -->
+<!-- Modal pour supprimer un chapitre -->
 <div class="modal fade" id="modalDeleteChapter" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">

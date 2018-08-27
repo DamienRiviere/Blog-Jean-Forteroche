@@ -3,7 +3,7 @@
 <div class="container-profile bg-light">
 
     <div class="container">
-
+        <!-- Formulaire de connexion au site -->
         <form class="form-signin" method="POST" action="authentication">
             <h2 class="style-contact-title text-center">Connexion</h2>
             <div class="col-lg-4 offset-lg-4 mb-3">

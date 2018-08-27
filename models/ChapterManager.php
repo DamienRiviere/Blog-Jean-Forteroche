@@ -28,7 +28,7 @@ class ChapterManager extends Model {
     public function getChaptersHome()
     {
         $var = [];
-        $req = $this->getDb()->prepare('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT 0, 3');
+        $req = $this->getDb()->prepare('SELECT id, title, content, DATE_FORMAT(creation_date, \'le %d/%m/%Y\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT 0, 3');
         $req->execute();
         while($data = $req->fetch(PDO::FETCH_ASSOC))
         {

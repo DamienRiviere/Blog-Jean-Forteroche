@@ -17,9 +17,8 @@ class ControllerChapter {
     public $error;
 
     /**
-     * Constructeur ou l'on controle qu'il n'y est pas plusieurs paramètre dans l'URL 
-     * et on affiche une exception si c'est le cas
-     * sinon on lance la fonction chapter
+     * Constructeur ou l'on récupère l'url
+     * et ou on lance les actions
      *
      * @param [type] $url
      */
@@ -64,7 +63,7 @@ class ControllerChapter {
     }
 
     /**
-     * Fonction ou l'on récupère le chapitre en fonction de son id
+     * Fonction ou l'on récupère le chapitre et les commentaires via l'ID
      *
      * @param [type] $id
      */
@@ -85,7 +84,7 @@ class ControllerChapter {
     }
 
     /**
-     * Fonction ou on controle le commentaire et on l'envoie dans la base de données
+     * Fonction ou l'on controle le commentaire et on l'envoie dans la base de données
      *
      */
     private function checkComment()

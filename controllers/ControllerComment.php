@@ -11,6 +11,12 @@ class ControllerComment {
 
     protected $id;
 
+    /**
+     * Constructeur ou l'on récupère l'url
+     * et ou on lance les actions
+     *
+     * @param [type] $url
+     */
     public function __construct($url)
     {
         if(isset($url) && count($url) > 1)
@@ -20,11 +26,31 @@ class ControllerComment {
         else if(isset($_GET['url']) == 'comment' AND isset($_GET['id']) AND !empty($_SESSION) AND $_SESSION['slug'] == 'admin' AND $_SESSION['level'] == '2')
         {
             $this->id = $_GET['id'];
-            $this->comment($this->id);
+            $this->checkId($this->id);
         }
         else
         {
             throw New Exception('Page introuvable !');
+        }
+    }
+
+    /**
+     * Fonction ou l'on vérifie que le chapitre existe via son Id
+     *
+     * @param [type] $id
+     */
+    private function checkId($id)
+    {
+        $this->_chapterManager = new ChapterManager;
+        $checkChapterId = $this->_chapterManager->checkChapterId($id);
+
+        if($checkChapterId == 0)
+        {
+            throw New Exception('Chapitre introuvable !');
+        }
+        else
+        {
+            $this->comment($id);
         }
     }
    

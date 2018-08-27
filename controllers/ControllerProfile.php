@@ -9,9 +9,8 @@ class ControllerProfile {
     private $_view;
 
     /**
-     * Constructeur ou l'on controle qu'il n'y est pas plusieurs paramètre dans l'URL 
-     * et on affiche une exception si c'est le cas
-     * sinon on récupère le profil de l'utilisateur avec son id
+     * Constructeur ou l'on récupère l'url
+     * et ou on lance les actions
      *
      * @param [type] $url
      */

@@ -3,8 +3,9 @@
 <div class="container-page bg-light">
 
     <div class="container col-lg-8 style-link">
-        <a href="editionchapter">Retour sur le tableau</a>
+        <a href="administration">Retour sur le tableau</a>
     </div>
+    <!-- Modification d'un chapitre -->
     <div class="container col-lg-8 style-container">
         <h2 class="text-center">Modifier un chapitre :</h2>
         <form action="" method="POST" class="form-register">

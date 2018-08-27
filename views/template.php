@@ -1,24 +1,26 @@
 <?php
-$msg;
+$menu;
 
+// Si on est administrateur le menu apparait avec le bouton d'administration
 if(!empty($_SESSION) AND $_SESSION['slug'] == 'admin')
 {
-    $msg = "<div class=\"dropdown\">
+    $menu = "<div class=\"dropdown\">
                 <a class=\"btn btn-outline-primary dropdown-toggle\" href=\"#\" role=\"button\" id=\"dropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
                 Bienvenue " . $_SESSION['pseudo'] . "
                 </a>              
                 <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"dropdownMenuLink\">
                     <a class=\"dropdown-item\" href=\"profile&id=" . $_SESSION['id'] . "\">PROFIL</a>
                     <div class=\"dropdown-divider\"></div>
-                    <a class=\"dropdown-item\" href=\"editionchapter\">ADMINISTRATION</a>
+                    <a class=\"dropdown-item\" href=\"administration\">ADMINISTRATION</a>
                     <div class=\"dropdown-divider\"></div>
                     <a class=\"dropdown-item\" href=\"disconnection\">DECONNEXION</a>
                 </div>
             </div>";
 }
+// Sinon si on est membre le menu apparait sans le bouton d'administration
 else if(!empty($_SESSION) AND $_SESSION['slug'] == 'members')
 {
-    $msg = "<div class=\"dropdown\">
+    $menu = "<div class=\"dropdown\">
                 <a class=\"btn btn-outline-primary dropdown-toggle\" href=\"#\" role=\"button\" id=\"dropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
                 Bienvenue " . $_SESSION['pseudo'] . "
                 </a>              
@@ -29,9 +31,10 @@ else if(!empty($_SESSION) AND $_SESSION['slug'] == 'members')
                 </div>
             </div>";
 }
+//Si aucun compte n'est connecté, un bouton de connexion est visible
 else
 {
-    $msg = "<a class=\"nav-link text-dark\" href=\"authentication\"><i class=\"fas fa-sign-in-alt\"></i> CONNEXION</a>";
+    $menu = "<a class=\"nav-link text-dark\" href=\"authentication\"><i class=\"fas fa-sign-in-alt\"></i> CONNEXION</a>";
 }
 ?>
 
@@ -41,18 +44,40 @@ else
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Billet simple pour l'Alaska : Le nouveau roman en ligne de Jean Forteroche">
+        <meta name="author" content="Jean Forteroche">
+
+        <!-- Titre de l'onglet définie via une variable -->
         <title><?= $t ?></title>
+
         <!-- CSS Bootstrap -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+        
         <!-- CSS FontAwesome -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+        
         <!-- Styles -->
         <link rel="stylesheet" href="public/css/style.css"/>
+        
         <!-- TinyMCE -->
         <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
         <script>tinymce.init({ selector:'#newchapter', height : "378" });</script>
         <script>tinymce.init({ selector:'#newcomment', height : "300" });</script>
         <script>tinymce.init({ selector:'#editcomment', height : "378" });</script>
+        
+        <!-- Twitter Card data -->
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@jForteroche" />
+        <meta name="twitter:title" content="Billet simple pour l'Alaska" />
+        <meta name="twitter:image:src" content="http://d-riviere.fr/projet/projet_4/public/images/portrait_jean_forteroche.jpg" />
+        <meta name="twitter:description" content="Billet simple pour l'Alaska : Le nouveau roman en ligne de Jean Forteroche" />
+        
+        <!-- Facebook Open Graph data -->
+        <meta property="og:title" content="Billet simple pour l'Alaska" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="http://d-riviere.fr/projet/projet_4/index.php" />
+        <meta property="og:image" content="http://d-riviere.fr/projet/projet_4/public/images/portrait_jean_forteroche.jpg" />
+        <meta property="og:description" content="Billet simple pour l'Alaska : Le nouveau roman en ligne de Jean Forteroche" />
    </head>
 
     <body>
@@ -95,7 +120,8 @@ else
                         <!-- Connexion -->
                         <li class="nav-item">
                             <span class="glyphicon glyphicon-home"></span>
-                            <?= $msg ?>
+                            <!-- Affichage de la variable menu -->
+                            <?= $menu ?>
                         </li>
 
                     </ul>
@@ -107,6 +133,7 @@ else
 
         </header>
 
+        <!-- Affichage du contenu de la page -->
         <?= $content ?>
 
         <footer class="footer">

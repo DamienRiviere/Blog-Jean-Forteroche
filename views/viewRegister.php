@@ -2,6 +2,7 @@
 
 <div class="container-register bg-light">
 
+    <!-- Formulaire d'inscription -->
     <div class="container">
         
         <h2 class="style-contact-title text-center">Créer un compte :</h2>

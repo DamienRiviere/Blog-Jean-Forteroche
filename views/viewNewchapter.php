@@ -3,9 +3,10 @@
 <div class="container-page bg-light">
 
     <div class="container col-lg-8 style-link">
-        <a href="editionchapter">Retour sur le tableau</a>
+        <a href="administration">Retour sur le tableau</a>
     </div>
 
+    <!-- Publication d'un nouveau chapitre -->
     <div class="container col-lg-8 style-container">
         <h2 class="text-center">Publier un chapitre :</h2>
         <form action="newchapter" method="POST" class="form-register">
