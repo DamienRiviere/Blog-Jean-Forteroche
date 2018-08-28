@@ -97,9 +97,9 @@ class ControllerEditchapter {
     {
         if(isset($_POST['new_chapter_title']) AND !empty($_POST['new_chapter_title']) AND isset($_POST['new_chapter_content']) AND !empty($_POST['new_chapter_content']))
         {
-            $this->newTitle = $_POST['new_chapter_title'];
+            $this->newTitle = htmlspecialchars($_POST['new_chapter_title']);
             $this->newAuthor = $_SESSION['pseudo'];
-            $this->newContent = $_POST['new_chapter_content'];
+            $this->newContent = htmlspecialchars($_POST['new_chapter_content']);
 
             $this->_chapterManager = new ChapterManager;
             $updateChapter = $this->_chapterManager->updateChapter($this->id, $this->newTitle, $this->newAuthor, $this->newContent);
