@@ -80,14 +80,14 @@
     <section class="jumbotron text-center">
         <img src="public/images/portrait_jean_forteroche.jpg" class="rounded mx-auto d-block img-thumbnail" id="jean-forteroche" alt="Portrait de Jean Forteroche">
         <div class="container">
-            <h1>Qui suis-je ?</h1>
+            <h1 class="mb-4">Qui suis-je ?</h1>
             <p class="text-jumbotron">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         </div>
     </section>
 
     <div class="py-5 bg-light" id="lastChapter">
         <div class="container">
-            <h1 class="title-publication">Dernières publications :</h1>
+            <h1 class="title-publication mb-4">Dernières publications :</h1>
             <div class="row">
             <?php foreach($chapters as $chapter): ?>
                 <div class="col-lg-4 col-md-6">

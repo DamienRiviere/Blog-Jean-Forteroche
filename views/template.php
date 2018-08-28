@@ -78,6 +78,11 @@ else
         <meta property="og:url" content="http://d-riviere.fr/projet/projet_4/index.php" />
         <meta property="og:image" content="http://d-riviere.fr/projet/projet_4/public/images/portrait_jean_forteroche.jpg" />
         <meta property="og:description" content="Billet simple pour l'Alaska : Le nouveau roman en ligne de Jean Forteroche" />
+
+        <!-- Favicons -->
+        <link href="public/images/favicon-32x32.png" type="img/png" rel="icon" />
+        <link rel="icon" type="img/png" href="public/images/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="img/png" href="public/images/favicon-16x16.png" sizes="16x16">
    </head>
 
     <body>

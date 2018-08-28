@@ -28,7 +28,7 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="inputcontent">Votre message :</label>
-                        <textarea id="inputcontent" name="message" class="form-control" rows="10"></textarea>
+                        <textarea id="inputcontent" name="message" class="form-control" rows="5"></textarea>
                     </div>
                     <button type="submit" name="submit" class="btn btn-primary btn-block">Envoyer</button>
                 </div>
