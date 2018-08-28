@@ -60,7 +60,7 @@ else
         <link rel="stylesheet" href="public/css/style.css"/>
         
         <!-- TinyMCE -->
-        <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+        <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=lefft9o2ysg9fbwwe3cf7t7i20vfxb926logux6y2e5osyq9"></script>
         <script>tinymce.init({ selector:'#newchapter', height : "378" });</script>
         <script>tinymce.init({ selector:'#newcomment', height : "300" });</script>
         <script>tinymce.init({ selector:'#editcomment', height : "378" });</script>
