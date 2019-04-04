@@ -1,4 +1,4 @@
-# Projet 4 : Créez un blog pour un écrivain
+# Blog de Jean-Forteroche : Créez un blog pour un écrivain
 
 Vous développerez une application de blog simple en PHP et avec une base de données MySQL. Elle doit fournir une interface frontend (lecture des billets) et une interface backend (administration des billets pour l'écriture). On doit y retrouver tous les éléments d'un CRUD :
 

@@ -5,6 +5,7 @@ class View {
     private $_file;
     private $_t;
 
+    // Récupère le nom de la vue dans le constructeur
     public function __construct($action)
     {
         $this->_file = 'views/view'. $action .'.php';
@@ -26,6 +27,7 @@ class View {
             'content' => $content
         ));
 
+        // Affichage de la vue
         echo $view;
     }
 
@@ -37,8 +39,10 @@ class View {
      */
     private function generateFile($file, $data)
     {
+        // Si le fichier existe
         if(file_exists($file))
         {
+            // Extraction des données
             extract($data);
 
             ob_start();

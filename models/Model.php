@@ -10,7 +10,7 @@ abstract class Model
      */
     private static function setDb()
     {
-        self::$_db = new \PDO('mysql:host=localhost;dbname=projet_4;charset=utf8', 'root', '');
+        self::$_db = new PDO('mysql:host=localhost;dbname=projet_4;charset=utf8', 'root', '');
         self::$_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
     }
 

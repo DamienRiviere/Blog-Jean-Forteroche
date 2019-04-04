@@ -16,7 +16,7 @@ class ControllerHome {
      */
     public function __construct($url)
     {
-        if(isset($url) && count($url) > 1)
+        if(isset($url) && count([$url]) > 1)
         {
             echo "Error 404";
         }
